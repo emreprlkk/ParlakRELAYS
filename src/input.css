@@ -1,0 +1,45 @@
+/*
+.input-css{
+/* Sayı girişi için CSS kodu */
+/*
+input[type="number"] {
+    display: block;
+    width: 18vh;
+    padding: 10px 8px;
+    margin: 8px 0;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    color: #cc1717;
+    margin-inline-start: auto;
+    
+    
+}
+
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+}
+*/
+.container {
+    display: flex; /* Flexbox özelliği etkinleştir */
+    justify-content: center; /* İçeriği merkeze hizalama */
+    align-items: center; /* İçeriği yükseklik boyunca merkeze hizalama */
+    height: 100vh; /* Sayfanın yüksekliğini kaplama */
+    margin-left: 40vh;
+    
+  }
+  .container2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* İki kolon oluşturur */
+    grid-gap: 80px; /* Her iki taraf için boşluk oluşturur */
+  }
+  
+  
+  .content {
+    text-align: center; /* İçeriğin metnini merkezi hizalama */
+  }
+  

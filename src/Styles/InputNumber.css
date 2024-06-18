@@ -1,0 +1,28 @@
+/* src/styles/InputNumber.module.css */
+
+.inputNumber {
+    width: 100px; /* Genişlik */
+    height: 40px; /* Yükseklik */
+    border-radius: 5px; /* Kenar radius */
+    padding: 10px; /* İç boşluk */
+    font-size: 16px; /* Yazı tipi boyutu */
+    color: #333; /* Metin rengi */
+    background-color: #f0f0f0; /* Arka plan rengi */
+    border: 1px solid #ccc; /* Kenar çizgi */
+  }
+  
+  .inputNumber:focus {
+    outline: none; /* Focus durumunda etrafındaki çubukları kaldır */
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1); /* Focus durumunda gölgeler */
+  }
+  
+  .inputNumber:hover {
+    cursor: pointer; /* Hover durumunda imleci bir ok şeklinde göster */
+    background-color: #e9ebee; /* Hover durumunda arka plan rengini değiştir */
+  }
+  
+  .inputNumber:disabled {
+    background-color: #eee; /* Devre dışı durumda arka plan rengini değiştir */
+    cursor: not-allowed; /* Devre dışı durumda imleci engelleme simgesi olarak göster */
+  }
+  

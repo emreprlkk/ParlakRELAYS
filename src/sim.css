@@ -1,0 +1,128 @@
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 10px #d53b3b80, 0 0 20px rgba(255,255,255,0.5), 0 0 30px rgba(255,255,255,0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px #ad7b7b, 0 0 30px hsl(0, 41%, 72%), 0 0 40px #ae1b1b;
+  }
+}
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+ 
+}
+
+.circle-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.circle {
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Metin rengini beyaz yapar */
+  font-size: 1.5em; /* Yazı boyutunu ayarlar */
+  position: relative;
+  z-index: 2;
+  
+  /* Apply the animation */
+  animation: glow 4s infinite ease-in-out;
+}
+
+.line-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.line {
+  width: 25vh;
+  height: 5px;
+  background-color: #100f0f;
+  
+  /* Add gradient background for sparkle effect */
+  background: linear-gradient(90deg, hwb(0 37% 58% / 0.8) 0%, #250202cc 50%, #080707cc 100%);
+  
+  /* Set the background size to be larger than the element itself */
+  background-size: 100% 100%;
+  
+  /* Apply the animation */
+  animation: sparkle 2s infinite ease-in-out;
+}
+
+.form-number-input {
+  position: absolute;
+  top: -40px; /* İhtiyaca göre ayarlayın */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3; /* Çizginin üzerinde olduğundan emin olun */
+  
+  /* Giriş alanı için ek stiller */
+  width: 20vh; /* Gerektiği kadar genişliği ayarlayın */
+  padding: 5px;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid #333; /* Alt çizgi stilini belirleyin */
+  background-color: transparent;
+  color: hwb(0 1% 90%);
+  font-size: 1rem;
+  
+  /* Giriş alanının odaklandığında stilini belirleyin */
+  outline: none;
+}
+
+.form-number-input:focus {
+  border-bottom-color: #d53b3b; /* Odaklandığında alt çizgi rengini değiştirin */
+}
+
+.Anadiv{
+
+  width: 155vh;
+  height: 40vh;
+  background-color: hsl(214, 70%, 62%);
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  display: right;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+ 
+  transition: transform 0.1s ease-out;
+  display: flex; /* Flexbox kullanarak çocukları yan yana sıralar */
+  justify-content: space-between; /* Çocukları eşit aralıklarla dağıtır */
+  margin-top: 1vh;
+  margin-bottom: 10vh;
+  margin-left: 35vh;
+}
+/* Different colors for each circle */
+.circle-0 {
+  background-color: #e879f9;
+  margin-left: 2vh;
+}
+
+.circle-1 {
+  background-color:  #34d399;
+}
+
+.circle-2 {
+  background-color: #4b5563;
+}
+
+.circle-3 {
+  background-color:  #fde68a;
+}
+
+.circle-4 {
+  background-color:#A5A58D;
+}
