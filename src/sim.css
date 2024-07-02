@@ -11,7 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30vh;
+  height: 15vh;
  
 }
 
@@ -46,7 +46,7 @@
 }
 
 .line {
-  width: 25vh;
+  width: 18vh;
   height: 5px;
   background-color: #100f0f;
   
@@ -68,7 +68,7 @@
   z-index: 3; /* Çizginin üzerinde olduğundan emin olun */
   
   /* Giriş alanı için ek stiller */
-  width: 20vh; /* Gerektiği kadar genişliği ayarlayın */
+  width: 15vh; /* Gerektiği kadar genişliği ayarlayın */
   padding: 5px;
   text-align: center;
   border: none;
@@ -81,14 +81,37 @@
   outline: none;
 }
 
+.Relay_Result {
+  position: absolute;
+  top:6vh; /* İhtiyaca göre ayarlayın */
+margin-left: -13vh;
+  transform: translateX(-50%);
+  z-index: 3; /* Çizginin üzerinde olduğundan emin olun */
+  
+  /* Giriş alanı için ek stiller */
+  width: 15vh; /* Gerektiği kadar genişliği ayarlayın */
+  padding: 2px;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  
+  background-color: #d53b3b;
+  color: hwb(0 1% 90%);
+  font-size: 1rem;
+  
+  /* Giriş alanının odaklandığında stilini belirleyin */
+  outline: none;
+}
+
+
 .form-number-input:focus {
   border-bottom-color: #d53b3b; /* Odaklandığında alt çizgi rengini değiştirin */
 }
 
-.Anadiv{
+.Anadiv_sim{
 
-  width: 155vh;
-  height: 40vh;
+  width: 145vh;
+  height: 30vh;
   background-color: hsl(214, 70%, 62%);
   border-radius: 25px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
@@ -103,7 +126,7 @@
   justify-content: space-between; /* Çocukları eşit aralıklarla dağıtır */
   margin-top: 1vh;
   margin-bottom: 10vh;
-  margin-left: 35vh;
+  margin-left: 25vh;
 }
 /* Different colors for each circle */
 .circle-0 {
@@ -126,3 +149,73 @@
 .circle-4 {
   background-color:#A5A58D;
 }
+
+.inputPlaceholder {
+  font-family: 'Roboto', sans-serif; /* Yazı tipi */
+  font-size: 16px;                  /* Yazı boyutu */
+  color: hsl(0, 79%, 45%);                      /* Yazı rengi */
+  opacity: 1; /* Placeholder metninin opaklığını değiştir */
+}
+
+
+
+
+.electric-container {
+  width: 120vh;
+  height: 5vh;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-left: 40vh;
+}
+
+.electric-line {
+  width: 100%;
+  height: 5px;
+  background: repeating-linear-gradient(
+    90deg,
+    yellow 0%,
+    yellow 20%,
+    transparent 20%,
+    transparent 40%
+  );
+  background-size: 200% 100%;
+  animation: move 15s linear infinite;
+  position: relative;
+}
+
+.electric-line::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid yellow;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+.text {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: hsla(159, 20%, 77%, 0.823);
+  font-size: 16px;
+  font-weight: bold;
+  animation: moveText 2s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+

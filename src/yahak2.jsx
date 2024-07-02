@@ -25,39 +25,47 @@ class Emre2 extends Component {
  
     const data_React_table =  Array.from({ length: 2000 }, (_, i) => 100 + (i * 5))
     this.state = {
-      tms1: 1,
-      ct1: 1,
-      cmt1: 1,
+      tms1: '',
+      ct1: '',
+      cmt1: '',
       DataY_1:[],
 
       StateDeneme:[],
 
      Kisa_Devre_React_Table: data_React_table,
      dataY2_React_Table:[],
-      k: 0.14,
-      a:0.02,
+      k1: 0.14,
+      a1:0.02,
+      k2: 0.14,
+      a2:0.02,
+      k3: 0.14,
+      a3:0.02,
+      k4: 0.14,
+      a4:0.02,
+      k5: 0.14,
+      a5:0.02,
       selectedOption: 'NI', // Seçili seçeneği tutacak durum
       
    
-      tms2: '1',
-      ct2: '1',
-      cmt2: '1',
+      tms2: '',
+      ct2: '',
+      cmt2: '',
       DataY_2:[],
     
 
-      tms3: '1',
-      ct3: '1',
-      cmt3: '1',
+      tms3: '',
+      ct3: '',
+      cmt3: '',
       DataY_3:[],
       
-      tms4: '1',
-      ct4: '1',
-      cmt4: '1',
+      tms4: '',
+      ct4: '',
+      cmt4: '',
       DataY_4:[],
       
-      tms5: '1',
-      ct5: '1',
-      cmt5: '1',
+      tms5: '',
+      ct5: '',
+      cmt5: '',
       DataY_5:[],
       
       series: [
@@ -164,6 +172,7 @@ class Emre2 extends Component {
    this.handleChange5 = this.handleChange5.bind(this);
   this.calculateData5 = this.calculateData5.bind(this);
   this.handleInputChange = this.handleInputChange.bind(this);
+  this.DropDown2 = this.DropDown2.bind(this);
   }
 
   componentDidMount() {
@@ -174,6 +183,7 @@ class Emre2 extends Component {
     this.calculateData4();
    this.calculateData5();
    this.handleInputChange();
+   this.DropDown2();
 
   }
   componentDidUpdate(prevProps) {
@@ -208,7 +218,7 @@ class Emre2 extends Component {
     this.setState({ [name]: parseFloat(value) }, () => this.calculateData5(4));
   }
   calculateData1(n) {
-    const { tms1, ct1, cmt1,k,a,Kisa_Devre_React_Table,dataY2_React_Table } = this.state;
+    const { tms1, ct1, cmt1,k1,a1,Kisa_Devre_React_Table,dataY2_React_Table } = this.state;
     //console.log("data y1 "+this.state.dataY)
     const KisaDevreAkimlari = [];
    // console.log("fault "+this.state.Kisa_Devre_React_Table)
@@ -222,7 +232,7 @@ class Emre2 extends Component {
        
      // console.log( "kisadevre "+yy )
       KisaDevreAkimlari.push(i);
-      let y1 = tms1*(k / (Math.pow(KisaDevreAkimlari[index] / (ct1*cmt1), a) - 1));
+      let y1 = tms1*(k1 / (Math.pow(KisaDevreAkimlari[index] / (ct1*cmt1), a1) - 1));
     
       
      // console.log( "hjhhj"+y1 )
@@ -274,7 +284,7 @@ class Emre2 extends Component {
   //console.log("data y2 "+this.state.series[0].data)
   }
   calculateData2(n) {
-    const { tms2, ct2, cmt2 } = this.state;
+    const { tms2, ct2, cmt2,k2,a2,Kisa_Devre_React_Table,dataY2_React_Table } = this.state;
     const KisaDevreAkimlari = [];
     const newdataY2 = [];
     let index =  0;
@@ -283,7 +293,7 @@ class Emre2 extends Component {
       
      
       KisaDevreAkimlari.push(i);
-      let y2 = tms2*(0.14 / (Math.pow(KisaDevreAkimlari[index] / (ct2*cmt2), 0.02) - 1));
+      let y2 = tms2*(k2/ (Math.pow(KisaDevreAkimlari[index] / (ct2*cmt2), a2) - 1));
       
     
       if(y2==Infinity){
@@ -323,7 +333,7 @@ class Emre2 extends Component {
        
   }
   calculateData3(n) {
-    const { tms3, ct3, cmt3 } = this.state;
+    const { tms3, ct3, cmt3,k3,a3,Kisa_Devre_React_Table,dataY2_React_Table } = this.state;
     const KisaDevreAkimlari = [];
     const newdataY3 = [];
     let index =  0;
@@ -333,7 +343,7 @@ class Emre2 extends Component {
       
       KisaDevreAkimlari.push(yy);
      // console.log( "devrek  "+KisaDevreAkimlari )
-      let y3 = tms3*(0.14 / (Math.pow(KisaDevreAkimlari[index] / (ct3*cmt3), 0.02) - 1));
+      let y3 = tms3*(k3/ (Math.pow(KisaDevreAkimlari[index] / (ct3*cmt3), a3) - 1));
     
       if(y3==Infinity){
         y3=1;
@@ -375,7 +385,7 @@ class Emre2 extends Component {
   }
 
   calculateData4(n) {
-    const { tms4, ct4, cmt4 } = this.state;
+    const { tms4, ct4, cmt4,k4,a4,Kisa_Devre_React_Table,dataY2_React_Table } = this.state;
     const KisaDevreAkimlari = [];
     const newDataY4 = [];
     let index =  0;
@@ -385,7 +395,7 @@ class Emre2 extends Component {
       
       KisaDevreAkimlari.push(yy);
      // console.log( "devrek  "+KisaDevreAkimlari )
-      let y4 = tms4*(0.14 / (Math.pow(KisaDevreAkimlari[index] / (ct4*cmt4), 0.02) - 1));
+      let y4 = tms4*(k4 / (Math.pow(KisaDevreAkimlari[index] / (ct4*cmt4), a4) - 1));
     
       if(y4==Infinity){
         y4=1;
@@ -428,7 +438,7 @@ class Emre2 extends Component {
   }
 
   calculateData5(n) {
-    const { tms5, ct5, cmt5 } = this.state;
+    const { tms5, ct5, cmt5,k5,a5,Kisa_Devre_React_Table,dataY2_React_Table } = this.state;
     const KisaDevreAkimlari = [];
     const newDataY5 = [];
     let index =  0;
@@ -438,7 +448,7 @@ class Emre2 extends Component {
       
       KisaDevreAkimlari.push(yy);
      // console.log( "devrek  "+KisaDevreAkimlari )
-      let y5 = tms5*(0.14 / (Math.pow(KisaDevreAkimlari[index] / (ct5*cmt5), 0.02) - 1));
+      let y5 = tms5*(k5 / (Math.pow(KisaDevreAkimlari[index] / (ct5*cmt5), a5) - 1));
     
       if(y5==Infinity){
         y5=1;
@@ -484,14 +494,14 @@ class Emre2 extends Component {
 
     //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
     if (selectedOption && selectedOption.value === 'NI') {
-      this.setState({ k: 0.14, a: 0.02 }, () => {
+      this.setState({ k1: 0.14, a1: 0.02 }, () => {
    //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
         this.calculateData1(0); // Correctly calling the method using this keyword
       });
       
     }
     else if (selectedOption && selectedOption.value === 'VI') {
-      this.setState({ k: 13.5, a: 1 }, () => {
+      this.setState({ k1: 13.5, a1: 1 }, () => {
       //  console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData1(0); // Correctly calling the method using this keyword
       });
@@ -500,8 +510,8 @@ class Emre2 extends Component {
       
     }
     else if (selectedOption && selectedOption.value === 'EI') {
-      this.setState({ k: 80, a: 2 }, () => {
-        console.log("güncellendi k " + this.state.k); // Log the updated state value
+      this.setState({ k1: 80, a1: 2 }, () => {
+   //     console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData1(0); // Correctly calling the method using this keyword
       });
       
@@ -515,13 +525,192 @@ class Emre2 extends Component {
       
     }
     else if (selectedOption && selectedOption.value === 'LTSI') {
-      this.setState({ k: 120, a: 1 }, () => {
-        console.log("güncellendi k " + this.state.k); // Log the updated state value
+      this.setState({ k1: 120, a1: 1 }, () => {
+      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData1(0); // Correctly calling the method using this keyword
       });
       
 
-     
+    }
+    
+    
+  };
+  DropDown2 = (selectedOption) => {
+
+    //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
+    if (selectedOption && selectedOption.value === 'NI') {
+      this.setState({ k2: 0.14, a2: 0.02 }, () => {
+   //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
+        this.calculateData2(1); // Correctly calling the method using this keyword
+      });
+      
+    }
+    else if (selectedOption && selectedOption.value === 'VI') {
+      this.setState({ k2: 13.5, a2: 1 }, () => {
+      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+        this.calculateData2(1); // Correctly calling the method using this keyword
+      });
+
+      
+      
+    }
+    else if (selectedOption && selectedOption.value === 'EI') {
+      this.setState({ k2: 80, a2: 2 }, () => {
+   //     console.log("güncellendi k " + this.state.k); // Log the updated state value
+        this.calculateData2(1); // Correctly calling the method using this keyword
+      });
+      
+
+      const options = [
+        { value: 'NI', label: 'Nominal Inverse' },
+        { value: 'VI', label: 'Very Inverse' },
+        { value: 'EI', label: 'Extremely Inverse' },
+        { value: 'LTSI', label: 'Long Time Standard Inverse' },
+      ];
+      
+    }
+    else if (selectedOption && selectedOption.value === 'LTSI') {
+      this.setState({ k2: 120, a2: 1 }, () => {
+      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+        this.calculateData2(1); // Correctly calling the method using this keyword
+      });
+      
+
+    }
+    
+    
+  };
+  DropDown3 = (selectedOption) => {
+
+    //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
+    if (selectedOption && selectedOption.value === 'NI') {
+      this.setState({ k3: 0.14, a3: 0.02 }, () => {
+   //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
+   this.calculateData3(2); // Correctly calling the method using this keyword
+      });
+      
+    }
+    else if (selectedOption && selectedOption.value === 'VI') {
+      this.setState({ k3: 13.5, a3: 1 }, () => {
+      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+      this.calculateData3(2); // Correctly calling the method using this keyword
+      });
+
+      
+      
+    }
+    else if (selectedOption && selectedOption.value === 'EI') {
+      this.setState({ k3: 80, a3: 2 }, () => {
+   //     console.log("güncellendi k " + this.state.k); // Log the updated state value
+   this.calculateData3(2); // Correctly calling the method using this keyword
+      });
+      
+
+      const options = [
+        { value: 'NI', label: 'Nominal Inverse' },
+        { value: 'VI', label: 'Very Inverse' },
+        { value: 'EI', label: 'Extremely Inverse' },
+        { value: 'LTSI', label: 'Long Time Standard Inverse' },
+      ];
+      
+    }
+    else if (selectedOption && selectedOption.value === 'LTSI') {
+      this.setState({ k3: 120, a3: 1 }, () => {
+      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+        this.calculateData3(2); // Correctly calling the method using this keyword
+      });
+      
+
+    }
+    
+    
+  };
+  DropDown4 = (selectedOption) => {
+
+    //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
+    if (selectedOption && selectedOption.value === 'NI') {
+      this.setState({ k4: 0.14, a4: 0.02 }, () => {
+   //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
+   this.calculateData4(3); // Correctly calling the method using this keyword
+      });
+      
+    }
+    else if (selectedOption && selectedOption.value === 'VI') {
+      this.setState({ k4: 13.5, a4: 1 }, () => {
+      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+      this.calculateData4(3); // Correctly calling the method using this keyword
+      });
+
+      
+      
+    }
+    else if (selectedOption && selectedOption.value === 'EI') {
+      this.setState({ k4: 80, a4: 2 }, () => {
+   //     console.log("güncellendi k " + this.state.k); // Log the updated state value
+   this.calculateData4(3); // Correctly calling the method using this keyword
+      });
+      
+
+      const options = [
+        { value: 'NI', label: 'Nominal Inverse' },
+        { value: 'VI', label: 'Very Inverse' },
+        { value: 'EI', label: 'Extremely Inverse' },
+        { value: 'LTSI', label: 'Long Time Standard Inverse' },
+      ];
+      
+    }
+    else if (selectedOption && selectedOption.value === 'LTSI') {
+      this.setState({ k4: 120, a4: 1 }, () => {
+      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+        this.calculateData4(3); // Correctly calling the method using this keyword
+      });
+      
+
+    }
+    
+    
+  };
+  DropDown5 = (selectedOption) => {
+
+    //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
+    if (selectedOption && selectedOption.value === 'NI') {
+      this.setState({ k5: 0.14, a5: 0.02 }, () => {
+   //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
+   this.calculateData5(4); // Correctly calling the method using this keyword
+      });
+      
+    }
+    else if (selectedOption && selectedOption.value === 'VI') {
+      this.setState({ k5: 13.5, a5: 1 }, () => {
+      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+      this.calculateData5(4); // Correctly calling the method using this keyword
+      });
+
+      
+      
+    }
+    else if (selectedOption && selectedOption.value === 'EI') {
+      this.setState({ k5: 80, a5: 2 }, () => {
+   //     console.log("güncellendi k " + this.state.k); // Log the updated state value
+   this.calculateData5(4); // Correctly calling the method using this keyword
+      });
+      
+
+      const options = [
+        { value: 'NI', label: 'Nominal Inverse' },
+        { value: 'VI', label: 'Very Inverse' },
+        { value: 'EI', label: 'Extremely Inverse' },
+        { value: 'LTSI', label: 'Long Time Standard Inverse' },
+      ];
+      
+    }
+    else if (selectedOption && selectedOption.value === 'LTSI') {
+      this.setState({ k5: 120, a5: 1 }, () => {
+      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+        this.calculateData5(4); // Correctly calling the method using this keyword
+      });
+      
+
     }
     
     
@@ -530,31 +719,93 @@ class Emre2 extends Component {
 
     const { StateDeneme } = this.state;
     const newInputValues = [...StateDeneme]; // StateDeneme'den yeni bir kopya oluşturuyoruz
+   // console.log("newInoutValues Eski :"+newInputValues)
     newInputValues[index] = value; // Belirli bir indekste yeni değeri ayarlıyoruz
-    this.setState({ StateDeneme: newInputValues },() => {
-      console.log("güncellendi StateDeneme " +StateDeneme); // Log the updated state value
+    console.log("newInoutValues Yeni :"+newInputValues)
+    const newFaultArray=newInputValues.map((_,indexf)=>
+    indexf===index? value:''// Belirli indekse sahip item'i güncelle, diğerleri boş string olarak ayarla
+    )
+     console.log("fault  Yeni :"+newFaultArray)
+    //console.log("newInoutValues Yeni :"+newInputValues)
+    this.setState({ StateDeneme: newFaultArray },() => {
+   //   console.log("güncellendi StateDeneme " +StateDeneme); // Log the updated state value
       this.hesapKitap(); // Correctly calling the method using this keyword
-    }); // setState ile yeni dizi değerini güncelliyoruz
+     
+    }); // setState ile yeni dizi değerini güncelliyoruz  KISA DEVRE DEĞERLERİNİ DİZİ OLARAK ALDIN .
   };
   hesapKitap(){
+   /*console.log(isNaN( this.state.StateDeneme[0] ))
+    console.log(isNaN( this.state.StateDeneme[1] ))
+    console.log(isNaN( this.state.StateDeneme[2] ))
+    console.log(isNaN( this.state.StateDeneme[3] ))
+    console.log(isNaN( this.state.StateDeneme[4] ))*/
+    const { tms1, ct1, cmt1,k,a, tms2, ct2, cmt2,
+      tms3, ct3, cmt3,tms4, ct4, cmt4 ,tms5,cmt5,ct5,StateDeneme} = this.state;
+    const FaultsArray=[...StateDeneme]
+        let y1,y2,y3,y4,y5;
+    let Doluİndex=  FaultsArray.findIndex(item=>item !==''&& !isNaN(item))+1
+    console.log(Doluİndex)
+      switch(Doluİndex){
+        
+        case 1:
+          console.log("girdi case 1 ve state 0  "+this.state.StateDeneme[0])
+           y1 = tms1*(k / (Math.pow(this.state.StateDeneme[0] / (ct1*cmt1), a) - 1));
+           console.log("girdi case 1 ve y1  "+y1)
+          return [y1.toFixed(3) + " Röle  Saniye Açar"]
+          case 2:
+            console.log("girdi case 2 ")
+             y1 = tms1*(k / (Math.pow(this.state.StateDeneme[1] / (ct1*cmt1), a) - 1));
+             y2 = tms2*(k / (Math.pow(this.state.StateDeneme[1] / (ct2*cmt2), a) - 1));
+            return       [y1.toFixed(3) + " Röle  Saniye Açar" ,y2.toFixed(3) + " Röle  Saniye Açar"]
+            case 3:
+               y1 = tms1*(k / (Math.pow(this.state.StateDeneme[2] / (ct1*cmt1), a) - 1));
+               y2 = tms2*(k / (Math.pow(this.state.StateDeneme[2] / (ct2*cmt2), a) - 1));
+               y3 = tms3*(k / (Math.pow(this.state.StateDeneme[2] / (ct3*cmt3), a) - 1));
+              return  [y1.toFixed(3) + " Röle  Saniye Açar" ,y2.toFixed(3) + " Röle  Saniye Açar",y3.toFixed(3)+" Saniyede Röle Açar"]
+              case 4:
+                 y1 = tms1*(k / (Math.pow(this.state.StateDeneme[3] / (ct1*cmt1), a) - 1));
+                y2 = tms2*(k / (Math.pow(this.state.StateDeneme[3] / (ct2*cmt2), a) - 1));
+                 y3 = tms3*(k / (Math.pow(this.state.StateDeneme[3] / (ct3*cmt3), a) - 1));
+               y4 = tms4*(k / (Math.pow(this.state.StateDeneme[3] / (ct4*cmt4), a) - 1));
+               return  [y1.toFixed(3) + " Röle  Saniye Açar" ,y2.toFixed(3) + " Röle  Saniye Açar",y3.toFixed(3)+" Saniyede Röle Açar",y4.toFixed(3)+" Saniyede Röle Açar"]
+                case 5:
+                  y1 = tms1*(k / (Math.pow(this.state.StateDeneme[4] / (ct1*cmt1), a) - 1));
+                  y2 = tms2*(k / (Math.pow(this.state.StateDeneme[4] / (ct2*cmt2), a) - 1));
+                   y3 = tms3*(k / (Math.pow(this.state.StateDeneme[4] / (ct3*cmt3), a) - 1));
+                 y4 = tms4*(k / (Math.pow(this.state.StateDeneme[4] / (ct4*cmt4), a) - 1));
+                 y5 = tms5*(k / (Math.pow(this.state.StateDeneme[4] / (ct5*cmt5), a) - 1));
+                 return  [y1.toFixed(3) + " Röle  Saniye Açar" ,y2.toFixed(3) + " Röle  Saniye Açar",y3.toFixed(3)+" Saniyede Röle Açar",
+                 y4.toFixed(3)+" Saniyede Röle Açar",y5.toFixed(3)+" Saniyede Röle Açar"]
 
-    const { tms1, ct1, cmt1,k,a, tms2, ct2, cmt2 } = this.state;
+
+
+
+      }
+
+
+
+
     
+   /*
    let y1 = tms1*(k / (Math.pow(this.state.StateDeneme[0] / (ct1*cmt1), a) - 1));
    let y2 = tms2*(k / (Math.pow(this.state.StateDeneme[1] / (ct2*cmt2), a) - 1));
-      console.log('degerr :', +y1);
-      return y1.toFixed(3) + " Saniye  " +y2.toFixed(3)  + "  Saniye  "   ; 
-    
+   let y3 = tms3*(k / (Math.pow(this.state.StateDeneme[2] / (ct3*cmt3), a) - 1));
+   let y4 = tms4*(k / (Math.pow(this.state.StateDeneme[3] / (ct4*cmt4), a) - 1));*/
+   
+    // return [y1.toFixed(3)  ,+y2.toFixed(3),+y3.toFixed(3),+y4.toFixed(3)  ] ; 
+    return [0,0,0,0,0]
   }
+ 
   render() {
 
  
     
     ;
     return (
+      
       <div>
    
-        <div className="anadiv">  
+        <div className="anadiv_chart_and_configrasyon">  
           <Chart
          className="chart"
           options={this.state.options}
@@ -565,6 +816,9 @@ class Emre2 extends Component {
        </div>
       
    <div className=" tanitim" > <h4>AŞAĞIDAKİ  EKRANDA BİRDAN FAZLA RÖLENİN CONFİGRASYON AYARLAMALARINI YAPABİLİRSİNİZ</h4> </div>
+
+  
+
         <div className="kare">
         <form className="form-container1">
         <div >   <Select
@@ -575,192 +829,229 @@ class Emre2 extends Component {
           
          
         /> </div>
-        <div><span>Eğri Seçimi yapınız  </span></div>
-        <label htmlFor="name"></label>
+   
        
-            <input
+            <input className="inputPlaceholder"
                   
-           style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }} 
+           style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="tms1"
               value={this.state.tms1}
               onChange={this.handleChange1}
+              placeholder="Eğri seçimini Girin"
             />
     
           <br />
-          <label htmlFor="name"></label>
-          <div><span>Akım Trafosu Primer </span></div>
-            <input  style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+     
+            <input   className="inputPlaceholder"
+            style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
       //     className={Styles.inputNumber}
               type="number"
               name="ct1"
               value={this.state.ct1}
               onChange={this.handleChange1}
+              placeholder="Akım Trafosu Değeri"
             />
        
           <br />
         
-          <div><span>CM   <FaBeer /></span></div>
+       
             <input
-            style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+            className="inputPlaceholder"
+            style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
               type="number"
               name="cmt1"
               value={this.state.cmt1}
               onChange={this.handleChange1}
+              placeholder="Akım Çarpanı"
             />
         
         </form>
-        
-       
-
-    
+  
         <form className="form-container2">
-        <div><span>INVERSE SEÇ </span></div>
-       
-      
-        <div><span>Eğri Seçimi yapınız  </span></div>
-          <label>
+
+        <div >   <Select
+          value={this.state.selectedOption}
+          onChange={this.DropDown2}
+          options={options}
+          placeholder='Eğri Tipi Seçin'
+          
          
-            <input 
-          style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+        /> </div>
+        
+         
+         
+            <input     className="inputPlaceholder"
+          style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
               type="number"
               name="tms2"
               value={this.state.tms2}
               onChange={this.handleChange2}
+              placeholder="Eğrinin Değerini Giriniz"
             />
-          </label>
+          
           <br />
-          <label>
-          <div><span>Akım Trafosu Primer  </span></div>
-            <input
-               style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+        
+         
+            <input  className="inputPlaceholder"
+               style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
               type="number"
               name="ct2"
               value={this.state.ct2}
               onChange={this.handleChange2}
+              placeholder="Akım Trafosu Değeri"
             />
-          </label>
+         
           <br />
-          <label>
-          <div><span>Akım Çarpanı Giriniz  </span></div>
-            <input
-               style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+         
+       
+            <input className="inputPlaceholder"
+               style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
               type="number"
               name="cmt2"
               value={this.state.cmt2}
               onChange={this.handleChange2}
+              placeholder="Akım Çarpanı"
             />
-          </label>
+          
         </form>
         <form className="form-container3">
-          <label>
-          <div><span>INVERSE SEÇ </span></div>
+      
+        <div >   <Select
+          value={this.state.selectedOption}
+          onChange={this.DropDown3}
+          options={options}
+          placeholder='Eğri Tipi Seçin'
+          
+         
+        /> </div>
        
-        <div><span>Eğri Seçimi yapınız  </span></div>
-            <input 
-               style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+        
+            <input  className="inputPlaceholder"
+               style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
               type="number"
               name="tms3"
               value={this.state.tms3}
               onChange={this.handleChange3}
+              placeholder="Eğrinin Değerini Giriniz"
             />
-          </label>
+        
           <br />
-          <label>
-          <div><span>Akım Trafosu Primer  </span></div>
-            <input
-            style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+     
+         
+            <input className="inputPlaceholder"
+            style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
               type="number"
               name="ct3"
               value={this.state.ct3}
               onChange={this.handleChange3}
+              placeholder="Akım Trafosu Değeri"
             />
-          </label>
+        
           <br />
-          <label>
-          <div><span>Akım Çarpanını Giriniz</span></div>
-            <input
-       style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+         
+        
+            <input className="inputPlaceholder"
+       style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
               type="number"
               name="cmt3"
               value={this.state.cmt3}
               onChange={this.handleChange3}
+              placeholder="Akım Çarpanı"
             />
-          </label>
+        
         </form>
         <form className="form-container4">
-          <label>
-          <div><span>INVERSE SEÇ </span></div>
+         
+      
+        <div >   <Select
+          value={this.state.selectedOption}
+          onChange={this.DropDown4}
+          options={options}
+          placeholder='Eğri Tipi Seçin'
+          
+         
+        /> </div>
      
-        <div><span>Eğri Seçimi yapınız  </span></div>
-            <input 
-           style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+      
+            <input  className="inputPlaceholder"
+           style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
               type="number"
               name="tms4"
               value={this.state.tms4}
               onChange={this.handleChange4}
+              placeholder="Eğrinin Değerini Giriniz"
             />
-          </label>
+     
           <br />
-          <label>
-          <div><span>Akım Trafosu Primer  </span></div>
-            <input
-            style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' ,backgroundColor: 'lightgrey'}}
+         
+ 
+            <input className="inputPlaceholder"
+            style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' ,backgroundColor: 'lightgrey'}}
              
               type="number"
               name="ct4"
               value={this.state.ct4}
               onChange={this.handleChange4}
+              placeholder="Akım Trafosu Değeri"
             />
-          </label>
+        
           <br />
-          <label>
-          <div><span>Akım Çarpanını Giriniz  </span></div>
-            <input
-              style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+         
+            <input className="inputPlaceholder"
+              style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
               type="number"
               name="cmt4"
               value={this.state.cmt4}
               onChange={this.handleChange4}
+              placeholder="Akım Çarpanı"
             />
-          </label>
+          
         </form>
         <form className="form-container5">
-          <label>
-          <div><span>INVERSE SEÇ </span></div>
-     
-        <div><span>Eğri Seçimi yapınız  </span></div>
-            <input 
-              style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+    
+            <div >   <Select
+          value={this.state.selectedOption}
+          onChange={this.DropDown5}
+          options={options}
+          placeholder='Eğri Tipi Seçin'
+          
+         
+        /> </div>
+            <input  className="inputPlaceholder"
+              style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
               type="number"
               name="tms5"
               value={this.state.tms5}
               onChange={this.handleChange5}
+               placeholder='Eğri Değerini Giriniz'
             />
-          </label>
+        
           <br />
-          <label>
-          <div><span>Akım Trafosu Primer   </span></div>
+         
+          
             
-            <input
-            style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+            <input className="inputPlaceholder"
+            style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
             type="number"
               name="ct5"
               value={this.state.ct5}
               onChange={this.handleChange5}
+              placeholder='Eğri Değerini Giriniz'
             />
-          </label>
+        
           <br />
-          <label>
-          <div><span>Akım Çarpanını Giriniz  </span></div>
-            <input
-              style={{ width: '18vh', height: '5px', padding: '5px', fontSize: '14px' }}
+      
+         
+            <input  className="inputPlaceholder"
+              style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
               type="number"
               name="cmt5"
               value={this.state.cmt5}
               onChange={this.handleChange5}
+              placeholder='Akım Çarpanı'
             />
-          </label>
+       
         </form>
         </div>
          {/*}  <div className="react-table"><DataTable 
@@ -769,7 +1060,13 @@ class Emre2 extends Component {
         röle1Data={this.state.dataY2_React_Table} röle2Data={this.state.series[1].data} röle3Data={this.state.series[2].data}
         röle4Data={this.state.series[3].data} röle5Data={this.state.series[4].data}/> </div>  */}
         <div className=" tanitim" > <h4>AYARLADIĞINIZ RÖLELERİN KISA DEVRE AKIMLARINA KARŞI DAVRANIŞLARINI İNCELEYEBİLİRSİNİZ</h4> </div>
-        <ModernCircles onInputChange={this.handleInputChange}/>
+        <div className="electric-container">
+      <div className="electric-line">
+      <div className="text">Enerjinin Akış Yönü</div>
+      </div>
+    </div>
+        <ModernCircles onInputChange={this.handleInputChange} 
+        Result_Relay1={this.hesapKitap()}/>
         
        <div>{this.hesapKitap()} </div>
       </div>
