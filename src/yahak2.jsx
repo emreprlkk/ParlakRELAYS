@@ -739,8 +739,8 @@ class Emre2 extends Component {
     console.log(isNaN( this.state.StateDeneme[2] ))
     console.log(isNaN( this.state.StateDeneme[3] ))
     console.log(isNaN( this.state.StateDeneme[4] ))*/
-    const { tms1, ct1, cmt1,k,a, tms2, ct2, cmt2,
-      tms3, ct3, cmt3,tms4, ct4, cmt4 ,tms5,cmt5,ct5,StateDeneme} = this.state;
+    const { tms1, ct1, cmt1,k1,a1, tms2, ct2, cmt2,k2,a2,
+      tms3, ct3, cmt3,k3,a3,tms4, ct4, cmt4 ,k4,a4,tms5,cmt5,ct5,k5,a5,StateDeneme} = this.state;
     const FaultsArray=[...StateDeneme]
         let y1,y2,y3,y4,y5;
     let Doluİndex=  FaultsArray.findIndex(item=>item !==''&& !isNaN(item))+1
@@ -749,31 +749,33 @@ class Emre2 extends Component {
         
         case 1:
           console.log("girdi case 1 ve state 0  "+this.state.StateDeneme[0])
-           y1 = tms1*(k / (Math.pow(this.state.StateDeneme[0] / (ct1*cmt1), a) - 1));
-           console.log("girdi case 1 ve y1  "+y1)
+           y1 = tms1*(k1 / (Math.pow(this.state.StateDeneme[0] / (ct1*cmt1), a1) - 1));
+          // console.log("girdi case 1 ve y1  "+y1)
+          if(y1<0 )
+          { return ["Röle Pic-Up Erişmedi,Röle Açmaz"]}
           return [y1.toFixed(3) + " Röle  Saniye Açar"]
           case 2:
-            console.log("girdi case 2 ")
-             y1 = tms1*(k / (Math.pow(this.state.StateDeneme[1] / (ct1*cmt1), a) - 1));
-             y2 = tms2*(k / (Math.pow(this.state.StateDeneme[1] / (ct2*cmt2), a) - 1));
+         ///   console.log("girdi case 2 ")
+             y1 = tms1*(k1 / (Math.pow(this.state.StateDeneme[1] / (ct1*cmt1), a1) - 1));
+             y2 = tms2*(k2 / (Math.pow(this.state.StateDeneme[1] / (ct2*cmt2), a2) - 1));
             return       [y1.toFixed(3) + " Röle  Saniye Açar" ,y2.toFixed(3) + " Röle  Saniye Açar"]
             case 3:
-               y1 = tms1*(k / (Math.pow(this.state.StateDeneme[2] / (ct1*cmt1), a) - 1));
-               y2 = tms2*(k / (Math.pow(this.state.StateDeneme[2] / (ct2*cmt2), a) - 1));
-               y3 = tms3*(k / (Math.pow(this.state.StateDeneme[2] / (ct3*cmt3), a) - 1));
+               y1 = tms1*(k1 / (Math.pow(this.state.StateDeneme[2] / (ct1*cmt1), a1) - 1));
+               y2 = tms2*(k2 / (Math.pow(this.state.StateDeneme[2] / (ct2*cmt2), a2) - 1));
+               y3 = tms3*(k3 / (Math.pow(this.state.StateDeneme[2] / (ct3*cmt3), a3) - 1));
               return  [y1.toFixed(3) + " Röle  Saniye Açar" ,y2.toFixed(3) + " Röle  Saniye Açar",y3.toFixed(3)+" Saniyede Röle Açar"]
               case 4:
-                 y1 = tms1*(k / (Math.pow(this.state.StateDeneme[3] / (ct1*cmt1), a) - 1));
-                y2 = tms2*(k / (Math.pow(this.state.StateDeneme[3] / (ct2*cmt2), a) - 1));
-                 y3 = tms3*(k / (Math.pow(this.state.StateDeneme[3] / (ct3*cmt3), a) - 1));
-               y4 = tms4*(k / (Math.pow(this.state.StateDeneme[3] / (ct4*cmt4), a) - 1));
+                 y1 = tms1*(k1 / (Math.pow(this.state.StateDeneme[3] / (ct1*cmt1), a1) - 1));
+                y2 = tms2*(k2 / (Math.pow(this.state.StateDeneme[3] / (ct2*cmt2), a2) - 1));
+                 y3 = tms3*(k3 / (Math.pow(this.state.StateDeneme[3] / (ct3*cmt3), a3) - 1));
+               y4 = tms4*(k4 / (Math.pow(this.state.StateDeneme[3] / (ct4*cmt4), a4) - 1));
                return  [y1.toFixed(3) + " Röle  Saniye Açar" ,y2.toFixed(3) + " Röle  Saniye Açar",y3.toFixed(3)+" Saniyede Röle Açar",y4.toFixed(3)+" Saniyede Röle Açar"]
                 case 5:
-                  y1 = tms1*(k / (Math.pow(this.state.StateDeneme[4] / (ct1*cmt1), a) - 1));
-                  y2 = tms2*(k / (Math.pow(this.state.StateDeneme[4] / (ct2*cmt2), a) - 1));
-                   y3 = tms3*(k / (Math.pow(this.state.StateDeneme[4] / (ct3*cmt3), a) - 1));
-                 y4 = tms4*(k / (Math.pow(this.state.StateDeneme[4] / (ct4*cmt4), a) - 1));
-                 y5 = tms5*(k / (Math.pow(this.state.StateDeneme[4] / (ct5*cmt5), a) - 1));
+                  y1 = tms1*(k1 / (Math.pow(this.state.StateDeneme[4] / (ct1*cmt1), a1) - 1));
+                  y2 = tms2*(k2 / (Math.pow(this.state.StateDeneme[4] / (ct2*cmt2), a2) - 1));
+                   y3 = tms3*(k3 / (Math.pow(this.state.StateDeneme[4] / (ct3*cmt3), a3) - 1));
+                 y4 = tms4*(k4 / (Math.pow(this.state.StateDeneme[4] / (ct4*cmt4), a4) - 1));
+                 y5 = tms5*(k5 / (Math.pow(this.state.StateDeneme[4] / (ct5*cmt5), a5) - 1));
                  return  [y1.toFixed(3) + " Röle  Saniye Açar" ,y2.toFixed(3) + " Röle  Saniye Açar",y3.toFixed(3)+" Saniyede Röle Açar",
                  y4.toFixed(3)+" Saniyede Röle Açar",y5.toFixed(3)+" Saniyede Röle Açar"]
 
