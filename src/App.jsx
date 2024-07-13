@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 import  Emre2 from './yahak2.jsx'
-
+import Sidebar from './ModernSidebar.jsx';
+//import Carousel3D from './Carousel3Demre.js'
 import './form.css'
 
 
@@ -24,7 +25,8 @@ function App  (){
  <div >
 
  <Emre2 />   
- 
+ <Sidebar/>
+
 </div >
 
 
