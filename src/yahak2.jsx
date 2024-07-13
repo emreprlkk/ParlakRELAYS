@@ -9,6 +9,7 @@ import Select from 'react-select'
 import DataTable  from './Table'
 import { GoFoldDown } from 'react-icons/go';
 import { data } from "autoprefixer";
+import Sidebar from './ModernSidebar.jsx';
 
 const options = [
   { value: 'NI', label: 'Nominal Inverse' },
@@ -228,7 +229,7 @@ class Emre2 extends Component {
     let NewdataY2_React_Table=[]
        // console.log("tms1 "+tms1,"ct1 "+ct1,"cmt1 "+cmt1)
        // console.log("tms2 "+tms2,"ct2 "+ct2,"cmt2 "+cmt2)
-    for (let i = 0; i <= 10000; i+=200) {
+    for (let i = 0; i <= 7000; i+=100) {
        
      // console.log( "kisadevre "+yy )
       KisaDevreAkimlari.push(i);
@@ -289,7 +290,7 @@ class Emre2 extends Component {
     const newdataY2 = [];
     let index =  0;
     //console.log( "hjhhj  "+tms2,ct2,cmt2 )
-    for (let i = 0; i <= 10000; i+=200) {
+    for (let i = 0; i <= 7000; i+=100) {
       
      
       KisaDevreAkimlari.push(i);
@@ -338,7 +339,7 @@ class Emre2 extends Component {
     const newdataY3 = [];
     let index =  0;
   //  console.log( "hjhhj  "+tms3 ,ct3,cmt3 )
-    for (let i = 0; i <= 10000 ; i+=200) {
+    for (let i = 0; i <= 7000 ; i+=100) {
       const yy =  i;
       
       KisaDevreAkimlari.push(yy);
@@ -390,7 +391,7 @@ class Emre2 extends Component {
     const newDataY4 = [];
     let index =  0;
   // console.log( "hjhhj  "+tms4 ,ct4,cmt4 )
-    for (let i = 0; i <= 10000 ; i+=200) {
+    for (let i = 0; i <= 7000 ; i+=100) {
       const yy =  i;
       
       KisaDevreAkimlari.push(yy);
@@ -443,7 +444,7 @@ class Emre2 extends Component {
     const newDataY5 = [];
     let index =  0;
    // console.log( "hjhhj  "+tms5 ,ct5,cmt5 )
-    for (let i = 0; i <= 10000 ; i+=200) {
+    for (let i = 0; i <= 7000 ; i+=1000) {
       const yy =  i;
       
       KisaDevreAkimlari.push(yy);
@@ -494,14 +495,14 @@ class Emre2 extends Component {
 
     //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
     if (selectedOption && selectedOption.value === 'NI') {
-      this.setState({ k1: 0.14, a1: 0.02 }, () => {
+      this.setState({ k1: 0.14, a1: 0.02,selectedOption:'Nominal Inverse' }, () => {
    //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
         this.calculateData1(0); // Correctly calling the method using this keyword
       });
       
     }
     else if (selectedOption && selectedOption.value === 'VI') {
-      this.setState({ k1: 13.5, a1: 1 }, () => {
+      this.setState({ k1: 13.5, a1: 1,selectedOption:'Very Inverse' }, () => {
       //  console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData1(0); // Correctly calling the method using this keyword
       });
@@ -510,22 +511,17 @@ class Emre2 extends Component {
       
     }
     else if (selectedOption && selectedOption.value === 'EI') {
-      this.setState({ k1: 80, a1: 2 }, () => {
+      this.setState({ k1: 80, a1: 2,selectedOption:'Extremely Inverse' }, () => {
    //     console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData1(0); // Correctly calling the method using this keyword
       });
       
 
-      const options = [
-        { value: 'NI', label: 'Nominal Inverse' },
-        { value: 'VI', label: 'Very Inverse' },
-        { value: 'EI', label: 'Extremely Inverse' },
-        { value: 'LTSI', label: 'Long Time Standard Inverse' },
-      ];
+    
       
     }
     else if (selectedOption && selectedOption.value === 'LTSI') {
-      this.setState({ k1: 120, a1: 1 }, () => {
+      this.setState({ k1: 120, a1: 1 ,selectedOption:'Long Time Standart Inverse'}, () => {
       //  console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData1(0); // Correctly calling the method using this keyword
       });
@@ -539,14 +535,14 @@ class Emre2 extends Component {
 
     //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
     if (selectedOption && selectedOption.value === 'NI') {
-      this.setState({ k2: 0.14, a2: 0.02 }, () => {
+      this.setState({ k2: 0.14, a2: 0.02,selectedOption:'Nominal Inverse' }, () => {
    //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
         this.calculateData2(1); // Correctly calling the method using this keyword
       });
       
     }
     else if (selectedOption && selectedOption.value === 'VI') {
-      this.setState({ k2: 13.5, a2: 1 }, () => {
+      this.setState({ k2: 13.5, a2: 1,selectedOption:'Very Inverse' }, () => {
       //  console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData2(1); // Correctly calling the method using this keyword
       });
@@ -555,7 +551,7 @@ class Emre2 extends Component {
       
     }
     else if (selectedOption && selectedOption.value === 'EI') {
-      this.setState({ k2: 80, a2: 2 }, () => {
+      this.setState({ k2: 80, a2: 2,selectedOption:'Extrelemy Inverse' }, () => {
    //     console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData2(1); // Correctly calling the method using this keyword
       });
@@ -570,7 +566,7 @@ class Emre2 extends Component {
       
     }
     else if (selectedOption && selectedOption.value === 'LTSI') {
-      this.setState({ k2: 120, a2: 1 }, () => {
+      this.setState({ k2: 120, a2: 1,selectedOption:'Long Time Standart Inverse' }, () => {
       //  console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData2(1); // Correctly calling the method using this keyword
       });
@@ -806,7 +802,7 @@ class Emre2 extends Component {
     return (
       
       <div>
-   
+    <Sidebar/>
         <div className="anadiv_chart_and_configrasyon">  
           <Chart
          className="chart"
@@ -817,17 +813,19 @@ class Emre2 extends Component {
         /> 
        </div>
       
-   <div className=" tanitim" > <h4>AŞAĞIDAKİ  EKRANDA BİRDAN FAZLA RÖLENİN CONFİGRASYON AYARLAMALARINI YAPABİLİRSİNİZ</h4> </div>
+   <div className=" tanitim" > <h4>AŞAĞIDAKİ  EKRANDA BİRDEN FAZLA RÖLENİN CONFİGRASYON AYARLAMALARINI YAPABİLİRSİNİZ </h4> </div>
 
   
 
         <div className="kare">
         <form className="form-container1">
-        <div >   <Select
+        <div >  
+          <div>Röle 1</div>
+           <Select
           value={this.state.selectedOption}
           onChange={this.handleChange}
           options={options}
-          placeholder='Eğri Tipi Seçin'
+          placeholder={this.state.selectedOption}
           
          
         /> </div>
@@ -835,7 +833,7 @@ class Emre2 extends Component {
        
             <input className="inputPlaceholder"
                   
-           style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }} 
+           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="tms1"
               value={this.state.tms1}
@@ -846,7 +844,7 @@ class Emre2 extends Component {
           <br />
      
             <input   className="inputPlaceholder"
-            style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
       //     className={Styles.inputNumber}
               type="number"
               name="ct1"
@@ -860,7 +858,7 @@ class Emre2 extends Component {
        
             <input
             className="inputPlaceholder"
-            style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="cmt1"
               value={this.state.cmt1}
@@ -872,11 +870,13 @@ class Emre2 extends Component {
   
         <form className="form-container2">
 
-        <div >   <Select
+        <div > 
+        <div>Röle 2</div> 
+         <Select
           value={this.state.selectedOption}
           onChange={this.DropDown2}
           options={options}
-          placeholder='Eğri Tipi Seçin'
+          placeholder={this.state.selectedOption}
           
          
         /> </div>
@@ -884,7 +884,7 @@ class Emre2 extends Component {
          
          
             <input     className="inputPlaceholder"
-          style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+        style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="tms2"
               value={this.state.tms2}
@@ -896,7 +896,7 @@ class Emre2 extends Component {
         
          
             <input  className="inputPlaceholder"
-               style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="ct2"
               value={this.state.ct2}
@@ -908,7 +908,7 @@ class Emre2 extends Component {
          
        
             <input className="inputPlaceholder"
-               style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="cmt2"
               value={this.state.cmt2}
@@ -919,7 +919,9 @@ class Emre2 extends Component {
         </form>
         <form className="form-container3">
       
-        <div >   <Select
+        <div > 
+        <div>Röle 3</div> 
+           <Select
           value={this.state.selectedOption}
           onChange={this.DropDown3}
           options={options}
@@ -930,7 +932,7 @@ class Emre2 extends Component {
        
         
             <input  className="inputPlaceholder"
-               style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="tms3"
               value={this.state.tms3}
@@ -942,7 +944,7 @@ class Emre2 extends Component {
      
          
             <input className="inputPlaceholder"
-            style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="ct3"
               value={this.state.ct3}
@@ -954,7 +956,7 @@ class Emre2 extends Component {
          
         
             <input className="inputPlaceholder"
-       style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+     style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="cmt3"
               value={this.state.cmt3}
@@ -966,7 +968,9 @@ class Emre2 extends Component {
         <form className="form-container4">
          
       
-        <div >   <Select
+        <div >   
+        <div>Röle 4</div>
+          <Select
           value={this.state.selectedOption}
           onChange={this.DropDown4}
           options={options}
@@ -977,7 +981,7 @@ class Emre2 extends Component {
      
       
             <input  className="inputPlaceholder"
-           style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+         style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="tms4"
               value={this.state.tms4}
@@ -989,7 +993,7 @@ class Emre2 extends Component {
          
  
             <input className="inputPlaceholder"
-            style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' ,backgroundColor: 'lightgrey'}}
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' ,backgroundColor: 'lightgrey'}}
              
               type="number"
               name="ct4"
@@ -1001,7 +1005,7 @@ class Emre2 extends Component {
           <br />
          
             <input className="inputPlaceholder"
-              style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="cmt4"
               value={this.state.cmt4}
@@ -1011,7 +1015,7 @@ class Emre2 extends Component {
           
         </form>
         <form className="form-container5">
-    
+        <div>Röle 5</div>
             <div >   <Select
           value={this.state.selectedOption}
           onChange={this.DropDown5}
@@ -1021,7 +1025,7 @@ class Emre2 extends Component {
          
         /> </div>
             <input  className="inputPlaceholder"
-              style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="tms5"
               value={this.state.tms5}
@@ -1034,7 +1038,7 @@ class Emre2 extends Component {
           
             
             <input className="inputPlaceholder"
-            style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
             type="number"
               name="ct5"
               value={this.state.ct5}
@@ -1046,7 +1050,493 @@ class Emre2 extends Component {
       
          
             <input  className="inputPlaceholder"
-              style={{ width: '20vh', height: '1vh', padding: '5px', fontSize: '14px' }}
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="cmt5"
+              value={this.state.cmt5}
+              onChange={this.handleChange5}
+              placeholder='Akım Çarpanı'
+            />
+       
+        </form>
+        </div>
+        <div className="kare">
+        <form className="form-container1">
+        <div >  
+          <div>Röle 1</div>
+           <Select
+          value={this.state.selectedOption}
+          onChange={this.handleChange}
+          options={options}
+          placeholder={this.state.selectedOption}
+          
+         
+        /> </div>
+   
+       
+            <input className="inputPlaceholder"
+                  
+           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="tms1"
+              value={this.state.tms1}
+              onChange={this.handleChange1}
+              placeholder="Eğri seçimini Girin"
+            />
+    
+          <br />
+     
+            <input   className="inputPlaceholder"
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+      //     className={Styles.inputNumber}
+              type="number"
+              name="ct1"
+              value={this.state.ct1}
+              onChange={this.handleChange1}
+              placeholder="Akım Trafosu Değeri"
+            />
+       
+          <br />
+        
+       
+            <input
+            className="inputPlaceholder"
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="cmt1"
+              value={this.state.cmt1}
+              onChange={this.handleChange1}
+              placeholder="Akım Çarpanı"
+            />
+        
+        </form>
+  
+        <form className="form-container2">
+
+        <div > 
+        <div>Röle 2</div> 
+         <Select
+          value={this.state.selectedOption}
+          onChange={this.DropDown2}
+          options={options}
+          placeholder={this.state.selectedOption}
+          
+         
+        /> </div>
+        
+         
+         
+            <input     className="inputPlaceholder"
+        style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="tms2"
+              value={this.state.tms2}
+              onChange={this.handleChange2}
+              placeholder="Eğrinin Değerini Giriniz"
+            />
+          
+          <br />
+        
+         
+            <input  className="inputPlaceholder"
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="ct2"
+              value={this.state.ct2}
+              onChange={this.handleChange2}
+              placeholder="Akım Trafosu Değeri"
+            />
+         
+          <br />
+         
+       
+            <input className="inputPlaceholder"
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="cmt2"
+              value={this.state.cmt2}
+              onChange={this.handleChange2}
+              placeholder="Akım Çarpanı"
+            />
+          
+        </form>
+        <form className="form-container3">
+      
+        <div > 
+        <div>Röle 3</div> 
+           <Select
+          value={this.state.selectedOption}
+          onChange={this.DropDown3}
+          options={options}
+          placeholder='Eğri Tipi Seçin'
+          
+         
+        /> </div>
+       
+        
+            <input  className="inputPlaceholder"
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="tms3"
+              value={this.state.tms3}
+              onChange={this.handleChange3}
+              placeholder="Eğrinin Değerini Giriniz"
+            />
+        
+          <br />
+     
+         
+            <input className="inputPlaceholder"
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="ct3"
+              value={this.state.ct3}
+              onChange={this.handleChange3}
+              placeholder="Akım Trafosu Değeri"
+            />
+        
+          <br />
+         
+        
+            <input className="inputPlaceholder"
+     style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="cmt3"
+              value={this.state.cmt3}
+              onChange={this.handleChange3}
+              placeholder="Akım Çarpanı"
+            />
+        
+        </form>
+        <form className="form-container4">
+         
+      
+        <div >   
+        <div>Röle 4</div>
+          <Select
+          value={this.state.selectedOption}
+          onChange={this.DropDown4}
+          options={options}
+          placeholder='Eğri Tipi Seçin'
+          
+         
+        /> </div>
+     
+      
+            <input  className="inputPlaceholder"
+         style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="tms4"
+              value={this.state.tms4}
+              onChange={this.handleChange4}
+              placeholder="Eğrinin Değerini Giriniz"
+            />
+     
+          <br />
+         
+ 
+            <input className="inputPlaceholder"
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' ,backgroundColor: 'lightgrey'}}
+             
+              type="number"
+              name="ct4"
+              value={this.state.ct4}
+              onChange={this.handleChange4}
+              placeholder="Akım Trafosu Değeri"
+            />
+        
+          <br />
+         
+            <input className="inputPlaceholder"
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="cmt4"
+              value={this.state.cmt4}
+              onChange={this.handleChange4}
+              placeholder="Akım Çarpanı"
+            />
+          
+        </form>
+        <form className="form-container5">
+        <div>Röle 5</div>
+            <div >   <Select
+          value={this.state.selectedOption}
+          onChange={this.DropDown5}
+          options={options}
+          placeholder='Eğri Tipi Seçin'
+          
+         
+        /> </div>
+            <input  className="inputPlaceholder"
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="tms5"
+              value={this.state.tms5}
+              onChange={this.handleChange5}
+               placeholder='Eğri Değerini Giriniz'
+            />
+        
+          <br />
+         
+          
+            
+            <input className="inputPlaceholder"
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+            type="number"
+              name="ct5"
+              value={this.state.ct5}
+              onChange={this.handleChange5}
+              placeholder='Eğri Değerini Giriniz'
+            />
+        
+          <br />
+      
+         
+            <input  className="inputPlaceholder"
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="cmt5"
+              value={this.state.cmt5}
+              onChange={this.handleChange5}
+              placeholder='Akım Çarpanı'
+            />
+       
+        </form>
+        </div>
+        <div className="kare">
+        <form className="form-container1">
+        <div >  
+          <div>Röle 1</div>
+           <Select
+          value={this.state.selectedOption}
+          onChange={this.handleChange}
+          options={options}
+          placeholder={this.state.selectedOption}
+          
+         
+        /> </div>
+   
+       
+            <input className="inputPlaceholder"
+                  
+           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="tms1"
+              value={this.state.tms1}
+              onChange={this.handleChange1}
+              placeholder="Eğri seçimini Girin"
+            />
+    
+          <br />
+     
+            <input   className="inputPlaceholder"
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+      //     className={Styles.inputNumber}
+              type="number"
+              name="ct1"
+              value={this.state.ct1}
+              onChange={this.handleChange1}
+              placeholder="Akım Trafosu Değeri"
+            />
+       
+          <br />
+        
+       
+            <input
+            className="inputPlaceholder"
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="cmt1"
+              value={this.state.cmt1}
+              onChange={this.handleChange1}
+              placeholder="Akım Çarpanı"
+            />
+        
+        </form>
+  
+        <form className="form-container2">
+
+        <div > 
+        <div>Röle 2</div> 
+         <Select
+          value={this.state.selectedOption}
+          onChange={this.DropDown2}
+          options={options}
+          placeholder={this.state.selectedOption}
+          
+         
+        /> </div>
+        
+         
+         
+            <input     className="inputPlaceholder"
+        style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="tms2"
+              value={this.state.tms2}
+              onChange={this.handleChange2}
+              placeholder="Eğrinin Değerini Giriniz"
+            />
+          
+          <br />
+        
+         
+            <input  className="inputPlaceholder"
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="ct2"
+              value={this.state.ct2}
+              onChange={this.handleChange2}
+              placeholder="Akım Trafosu Değeri"
+            />
+         
+          <br />
+         
+       
+            <input className="inputPlaceholder"
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="cmt2"
+              value={this.state.cmt2}
+              onChange={this.handleChange2}
+              placeholder="Akım Çarpanı"
+            />
+          
+        </form>
+        <form className="form-container3">
+      
+        <div > 
+        <div>Röle 3</div> 
+           <Select
+          value={this.state.selectedOption}
+          onChange={this.DropDown3}
+          options={options}
+          placeholder='Eğri Tipi Seçin'
+          
+         
+        /> </div>
+       
+        
+            <input  className="inputPlaceholder"
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="tms3"
+              value={this.state.tms3}
+              onChange={this.handleChange3}
+              placeholder="Eğrinin Değerini Giriniz"
+            />
+        
+          <br />
+     
+         
+            <input className="inputPlaceholder"
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="ct3"
+              value={this.state.ct3}
+              onChange={this.handleChange3}
+              placeholder="Akım Trafosu Değeri"
+            />
+        
+          <br />
+         
+        
+            <input className="inputPlaceholder"
+     style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="cmt3"
+              value={this.state.cmt3}
+              onChange={this.handleChange3}
+              placeholder="Akım Çarpanı"
+            />
+        
+        </form>
+        <form className="form-container4">
+         
+      
+        <div >   
+        <div>Röle 4</div>
+          <Select
+          value={this.state.selectedOption}
+          onChange={this.DropDown4}
+          options={options}
+          placeholder='Eğri Tipi Seçin'
+          
+         
+        /> </div>
+     
+      
+            <input  className="inputPlaceholder"
+         style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="tms4"
+              value={this.state.tms4}
+              onChange={this.handleChange4}
+              placeholder="Eğrinin Değerini Giriniz"
+            />
+     
+          <br />
+         
+ 
+            <input className="inputPlaceholder"
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' ,backgroundColor: 'lightgrey'}}
+             
+              type="number"
+              name="ct4"
+              value={this.state.ct4}
+              onChange={this.handleChange4}
+              placeholder="Akım Trafosu Değeri"
+            />
+        
+          <br />
+         
+            <input className="inputPlaceholder"
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="cmt4"
+              value={this.state.cmt4}
+              onChange={this.handleChange4}
+              placeholder="Akım Çarpanı"
+            />
+          
+        </form>
+        <form className="form-container5">
+        <div>Röle 5</div>
+            <div >   <Select
+          value={this.state.selectedOption}
+          onChange={this.DropDown5}
+          options={options}
+          placeholder='Eğri Tipi Seçin'
+          
+         
+        /> </div>
+            <input  className="inputPlaceholder"
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+              type="number"
+              name="tms5"
+              value={this.state.tms5}
+              onChange={this.handleChange5}
+               placeholder='Eğri Değerini Giriniz'
+            />
+        
+          <br />
+         
+          
+            
+            <input className="inputPlaceholder"
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+            type="number"
+              name="ct5"
+              value={this.state.ct5}
+              onChange={this.handleChange5}
+              placeholder='Eğri Değerini Giriniz'
+            />
+        
+          <br />
+      
+         
+            <input  className="inputPlaceholder"
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
               type="number"
               name="cmt5"
               value={this.state.cmt5}
@@ -1062,15 +1552,17 @@ class Emre2 extends Component {
         röle1Data={this.state.dataY2_React_Table} röle2Data={this.state.series[1].data} röle3Data={this.state.series[2].data}
         röle4Data={this.state.series[3].data} röle5Data={this.state.series[4].data}/> </div>  */}
         <div className=" tanitim" > <h4>AYARLADIĞINIZ RÖLELERİN KISA DEVRE AKIMLARINA KARŞI DAVRANIŞLARINI İNCELEYEBİLİRSİNİZ</h4> </div>
-        <div className="electric-container">
+          {/*       <div className="electric-container">
+    
       <div className="electric-line">
       <div className="text">Enerjinin Akış Yönü</div>
       </div>
-    </div>
+    </div>*/ }
+ 
         <ModernCircles onInputChange={this.handleInputChange} 
         Result_Relay1={this.hesapKitap()}/>
         
-       <div>{this.hesapKitap()} </div>
+    
       </div>
       
      /* <div>

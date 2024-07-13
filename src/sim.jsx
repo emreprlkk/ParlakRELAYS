@@ -45,6 +45,7 @@ setInputValues(newInputValues);
                 value={inputValues[i]}
                 placeholder='KısaDevre'
                 className="form-number-input"
+                
                 onChange={(e) => handleInputChange(e, i)}
               />
               <div className="line"></div>

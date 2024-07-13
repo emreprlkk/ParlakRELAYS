@@ -10,52 +10,145 @@
 }
 
 /* Mobil için media query */
-@media (max-width: 700px) {
+@media (max-width: 480px) {
+  .anadiv_chart_and_configrasyon {
+    width: 100%;
+    max-width: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* İçerideki öğelerin ortalanmasını sağlar */
+    justify-content: space-around; /* Öğeler arasında boşluk oluşturur */
+    padding: 10px;
+    margin-left: 35vh;
+  }
   .chart {
       margin-left:10vh;
+      width: 100vh;
+  
+      height: 70vh;
+      margin-left: 5vh;
+      
+      background-color: #f3f4f6;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-
-  .form-container1, 
-  .form-container2, 
-  .form-container3, 
-  .form-container4, 
-  .form-container5 {
-      width: 90%;
-      height: auto;
-      margin: 10px auto;
-  }
-
   .kare {
-    display: flex;
-      width: 90%;
-      height: auto;
-      margin: 10px auto;
-      flex-direction: row;
+    width: 100%;
+    max-width: 120vh;
+    flex-direction: column; /* Dikey hizalama sağlar */
+    
+    justify-content: flex-start;
+    margin-left: 0; /* Sol tarafta boşluk bırakılmaz */
+ 
   }
+  
+  .form-container1,
+  .form-container2,
+  .form-container3,
+  .form-container4,
+  .form-container5 {
 
-  .tanitim, 
-  .yazi {
-      margin-left: 0;
-      text-align: center;
+    width: 100px; /* Genişlik 100px olarak ayarlanır */
+    margin: 10px auto; /* Orta hizalamak için */
+    
+
   }
+  
+  
+  .form-container1 {
+    background-color: hsl(291, 77%, 5%);
+    margin-left: 2vh;
+  }
+  
+  .form-container5 {
+    background-color: #A5A58D;
+    margin-right: 2vh;
+  }
+  
+  .form-container2 {
+    background-color: #34d399;
+  }
+  
+  .form-container3 {
+    background-color: #4b5563;
+  }
+  
+  .form-container4 {
+    background-color: #fde68a;
+  }
+  
+  
+  
+  .kare:hover {
+    transform: scale(1.05);
+  }
+  
+  .tanitim {
+    width: 33vh;
+    height: 10vh;
+    color: #201d1d;
+    font-size: 12px;
+    margin-bottom: 5vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    font-weight: bold;
+    margin-left: 40vh !important;
+    text-align: center;
+    font-style: italic;
 
+  
+    
+  }
+  
   .side-div {
-      width: 90%;
-      height: auto;
-      margin: 10px auto;
-      flex-direction: column;
+    width: 70vh;
+    height: 30vh;
+    background-color: #9A7AA0;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 5vh;
+    display: flex;
   }
+  
 
-  .anadiv {
-      flex-direction: column;
-      padding: 10px;
+  
+  .yazi {
+    margin-top: 5vh;
+    background-color: #B4EDD2;
+    margin-left: 130vh;
   }
-
-  .react-table {
-      width: 100%;
-      height: auto;
-      margin: 10px auto;
+  
+  .form-container_2_1,
+  .form-container_2_2 {
+    width: 20vh;
+    height: 26vh;
+    padding: 20px;
+    background-color: #64748b;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
+  
+  .form-container_2_2 {
+    margin-left: 3vh;
+  }
+  
+  
+  
+}
+.kare {
+  width: 100%;
+  max-width: 58vw;
+  height: auto;
+  background-color: #f5f5f5;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  
+  justify-content: space-between;
+  margin-left: 40vh;
+  margin-top: 5vh;
+  padding: 10px;
 }
 
 .form-container1,
@@ -63,12 +156,15 @@
 .form-container3,
 .form-container4,
 .form-container5 {
- 
+  width:80%;
+  max-width: 80%;
+  margin: 10px;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2vh;
+  background-color: #fff;
 }
+
 
 .form-container1 {
   background-color: hsl(291, 77%, 5%);
@@ -92,19 +188,7 @@
   background-color: #fde68a;
 }
 
-.kare {
-  width: 150vh;
-  height: 20vh;
-  background-color: #e2e8f0;
-  border-radius: 25px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1vh;
-  margin-bottom: 10vh;
-  margin-left: 25vh;
-  transition: transform 0.3s ease-out;
-}
+
 
 .kare:hover {
   transform: scale(1.05);
@@ -153,14 +237,6 @@
   margin-left: 3vh;
 }
 
-.right-container {
-  display: flex;
-  flex-direction: column;
-}
 
-.react-table {
-  margin-top: 1vh;
-  margin-left: 35vh;
-  width: 170vh;
-  height: 30vh;
-}
+
+

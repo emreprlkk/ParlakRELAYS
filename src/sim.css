@@ -6,19 +6,143 @@
     box-shadow: 0 0 20px #ad7b7b, 0 0 30px hsl(0, 41%, 72%), 0 0 40px #ae1b1b;
   }
 }
+@keyframes glow_ınput {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5), 0 0 35px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 1), 0 0 50px rgba(255, 255, 255, 1), 0 0 60px rgba(255, 255, 255, 1), 0 0 70px rgba(255, 255, 255, 1);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(15, 14, 14, 0.5), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5), 0 0 35px rgba(255, 255, 255, 0.5);
+  }
+}
 
+/* Mobil için media query */
+@media (max-width: 480px) {
+  .Anadiv_sim{
+    width: 1px !important;
+   
+    background-color: white !important;
+    flex-direction: column;
+    align-items: center; /* İçerideki öğelerin ortalanmasını sağlar */
+
+  }
+  .circle-container {
+
+    width: 0 !important;
+    height: 0 !important;
+ 
+    flex-direction: column;
+    align-items: center; /* İçerideki öğelerin ortalanmasını sağlar */
+ 
+   
+  }
+  .circle-wrapper {
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* İçerideki öğelerin ortalanmasını sağlar */
+    justify-content: space-around; /* Öğeler arasında boşluk oluşturur */
+  
+   
+  }
+  
+  .line-wrapper {
+    display: flex;
+    flex-direction: column;
+ 
+  }
+  
+  .line {
+    width: 5px !important;
+    height: 8vh !important;
+    background: linear-gradient(180deg, hwb(0 37% 58% / 0.8) 0%, #250202cc 50%, #080707cc 100%); /* Dikey gradient */
+  }
+  .form-number-input {
+    position: absolute;
+    top: -2px   !important; /* İhtiyaca göre ayarlayın */
+    left: 7vh  !important; 
+    transform: translateX(-50%);
+    z-index: 3; /* Çizginin üzerinde olduğundan emin olun */
+    animation: glow_ınput 2s infinite;
+    /* Giriş alanı için ek stiller */
+    width: 10vh; /* Gerektiği kadar genişliği ayarlayın */
+    padding: 5px;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid #333; /* Alt çizgi stilini belirleyin */
+    background-color: transparent;
+    color: hwb(0 1% 90%);
+    font-size: 12px !important;
+    
+    /* Giriş alanının odaklandığında stilini belirleyin */
+    outline: none;
+  }
+
+  
+.Relay_Result {
+ 
+  top:-5vh !important; /* İhtiyaca göre ayarlayın */
+margin-left: 23vh !important;
+  
+  
+
+  
+  background-color: #d53b3b;
+  color: hwb(0 1% 90%);
+  font-size: 12px !important;
+  
+ 
+}
+.electric-container {
+display: none !important;
+}
+
+  
+
+}
+
+
+
+.Anadiv_sim{
+
+  width: 100%;
+  max-width: 120vh;
+  height: 13vw;
+  
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+ 
+
+ 
+  transition: transform 0.1s ease-out;
+  display: flex; /* Flexbox kullanarak çocukları yan yana sıralar */
+  justify-content: space-between; /* Çocukları eşit aralıklarla dağıtır */
+  margin-top: 1vh;
+  margin-bottom: 10vh;
+  margin-left: 40vh;
+}
 .circle-container {
+
+
+
+  background-color: #9e0c0c;
+  border-radius: 35px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 15vh;
+  justify-content: space-between;
+  padding: 10px;
  
 }
 
 .circle-wrapper {
+  
   display: flex;
   align-items: center;
-  position: relative;
+  justify-content: space-between;
+  
+ 
 }
 
 .circle {
@@ -40,15 +164,16 @@
 
 .line-wrapper {
   display: flex;
-  flex-direction: column;
+
   align-items: center;
   position: relative;
 }
 
 .line {
-  width: 18vh;
+
+  width: 14vh;
   height: 5px;
-  background-color: #100f0f;
+ 
   
   /* Add gradient background for sparkle effect */
   background: linear-gradient(90deg, hwb(0 37% 58% / 0.8) 0%, #250202cc 50%, #080707cc 100%);
@@ -56,8 +181,7 @@
   /* Set the background size to be larger than the element itself */
   background-size: 100% 100%;
   
-  /* Apply the animation */
-  animation: sparkle 2s infinite ease-in-out;
+  
 }
 
 .form-number-input {
@@ -66,16 +190,16 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 3; /* Çizginin üzerinde olduğundan emin olun */
-  
+  animation: glow_ınput 2s infinite;
   /* Giriş alanı için ek stiller */
-  width: 15vh; /* Gerektiği kadar genişliği ayarlayın */
+  width: 10vh; /* Gerektiği kadar genişliği ayarlayın */
   padding: 5px;
   text-align: center;
   border: none;
-  border-bottom: 2px solid #333; /* Alt çizgi stilini belirleyin */
+  border-bottom: 2px solid #0e0e0e; /* Alt çizgi stilini belirleyin */
   background-color: transparent;
   color: hwb(0 1% 90%);
-  font-size: 1rem;
+  font-size: 14px;
   
   /* Giriş alanının odaklandığında stilini belirleyin */
   outline: none;
@@ -83,8 +207,8 @@
 
 .Relay_Result {
   position: absolute;
-  top:6vh; /* İhtiyaca göre ayarlayın */
-margin-left: -13vh;
+  top:7vh; /* İhtiyaca göre ayarlayın */
+margin-left: -19vh;
   transform: translateX(-50%);
   z-index: 3; /* Çizginin üzerinde olduğundan emin olun */
   
@@ -108,29 +232,10 @@ margin-left: -13vh;
   border-bottom-color: #d53b3b; /* Odaklandığında alt çizgi rengini değiştirin */
 }
 
-.Anadiv_sim{
 
-  width: 145vh;
-  height: 30vh;
-  background-color: hsl(214, 70%, 62%);
-  border-radius: 25px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-  display: right;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
- 
-  transition: transform 0.1s ease-out;
-  display: flex; /* Flexbox kullanarak çocukları yan yana sıralar */
-  justify-content: space-between; /* Çocukları eşit aralıklarla dağıtır */
-  margin-top: 1vh;
-  margin-bottom: 10vh;
-  margin-left: 25vh;
-}
 /* Different colors for each circle */
 .circle-0 {
-  background-color: #e879f9;
+  background-color:hsl(291, 77%, 5%);
   margin-left: 2vh;
 }
 

@@ -3,15 +3,16 @@ body {
   }
   
   .sidebar {
-    position: fixed;
+   position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 20vh;
+    width: 25vh;
     background-color: #333;
     color: white;
     transition: transform 0.3s ease;
     transform: translateX(-100%);
+    z-index: 2; /* Z-index değerini daha yüksek yaparak üstte görünmesini sağlıyoruz */
   }
   
   .sidebar.open {
@@ -20,8 +21,9 @@ body {
   
   .toggle-btn {
     position: absolute;
+    width: 70px;
     top: 20px;
-    right: -60px;
+    right: -50px;
     padding: 10px 20px;
     background-color: #333;
     color: white;
@@ -31,11 +33,12 @@ body {
   }
   
   .sidebar.open .toggle-btn {
-    right: -60px;
+    right: -55px;
+   
   }
   
   .nav {
-    margin: 100px 0 0 20px;
+    margin: 80px 0 0 10px;
   }
   
   .nav ul {
@@ -44,16 +47,29 @@ body {
   }
   
   .nav ul li {
-    margin: 20px 0;
+    margin: 60px 0;
   }
   
   .nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 14px;
+   
   }
   
   .nav ul li a:hover {
     text-decoration: underline;
   }
+  .DeveloperText{
+    width: 20vh;
+    height: 10vh;
+   font-size: small;
   
+    margin-top: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+   
+
+
+  }
