@@ -1,4 +1,4 @@
-@keyframes glow {
+/*@keyframes glow {
   0%, 100% {
     box-shadow: 0 0 10px #d53b3b80, 0 0 20px rgba(255,255,255,0.5), 0 0 30px rgba(255,255,255,0.5);
   }
@@ -16,13 +16,13 @@
   100% {
     text-shadow: 0 0 5px rgba(15, 14, 14, 0.5), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5), 0 0 35px rgba(255, 255, 255, 0.5);
   }
-}
+}*/
 
 /* Mobil için media query */
 @media (max-width: 480px) {
   .Anadiv_sim{
     width: 1px !important;
-   
+   margin-left:40px !important;
     background-color: white !important;
     flex-direction: column;
     align-items: center; /* İçerideki öğelerin ortalanmasını sağlar */
@@ -44,8 +44,6 @@
     flex-direction: column;
     align-items: center; /* İçerideki öğelerin ortalanmasını sağlar */
     justify-content: space-around; /* Öğeler arasında boşluk oluşturur */
-  
-   
   }
   
   .line-wrapper {
@@ -85,10 +83,7 @@
  
   top:-5vh !important; /* İhtiyaca göre ayarlayın */
 margin-left: 23vh !important;
-  
-  
 
-  
   background-color: #d53b3b;
   color: hwb(0 1% 90%);
   font-size: 12px !important;

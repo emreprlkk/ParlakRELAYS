@@ -99,10 +99,7 @@ const inputs2=[
   const [isSignUp, setIsSignUp] = useState(true);
 
   const authFonc= async()=>{
-  
-
-
-        if(isSignUp){
+    if(isSignUp){
           if(values.password===values.confirmpassword){
 
             try {
@@ -115,15 +112,14 @@ const inputs2=[
         
           window.location="/ConfigAndSim"
         }
-          
+   
         } catch (error) {
      
           toast.error(error.message);
           
         }
           }
-         
-      
+
         }
         else{
           try {
@@ -133,9 +129,7 @@ const inputs2=[
         
           if(user){
             toast.success("Hoşgeldiniz :)") // görüntülenmyior buraya bir bak
-             
-         
-          window.location="/ConfigAndSim"
+            window.location="/ConfigAndSim"
           }
             
           } catch (error) {
@@ -145,13 +139,6 @@ const inputs2=[
           
     
         }
-
-      
-   
-      
-   
-     
-    
     
    
   }
@@ -195,7 +182,7 @@ const inputs2=[
 
  ))}*/}
 
-  <p  onClick={()=> setIsSignUp(!isSignUp) }> {isSignUp ? "Giriş Yap" : "Kayıt Ol"}</p>
+  <div className='formgecisi' onClick={()=> setIsSignUp(!isSignUp) }   > {isSignUp ?  "Hesabınız Var Mı?Giriş Yapın" : "Hesabınız Yok Mu?Kayıt olun"}  </div> 
 <button className='buttonSingupSingın' onClick={authFonc}>{isSignUp ? 'Kayıt Ol' : 'Giriş Yap'} </button>
   </form>
   <ToastContainer

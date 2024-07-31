@@ -9,7 +9,7 @@ import {
   Routes
 } from "react-router-dom";
 import  Emre2 from './yahak2.jsx'
-import Sidebar from './ModernSidebar.jsx';
+//import Sidebar from './ModernSidebar.jsx';
 //import Carousel3D from './Carousel3Demre.js'
 import './form.css'
 import Singup from './Components/Singupx.jsx';
