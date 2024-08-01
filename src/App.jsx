@@ -35,8 +35,6 @@ function App  (){
 <BrowserRouter>
 <Routes> 
   
-
-     
      <Route path="/"element={ <Singup/> } />
      <Route path="/ConfigAndSim"element={ <Emre2/>  } />
      <Route path="/DevAbout"element={ <Blogx/>  } />
