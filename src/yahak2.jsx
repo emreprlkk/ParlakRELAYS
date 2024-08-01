@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
 import   "./form.css"
-
 import { FiChevronsDown } from "react-icons/fi";
 import { FiChevronsUp } from "react-icons/fi";
 import ModernCircles from "./sim.jsx"
 import Select from 'react-select'
-
 import Sidebar from './ModernSidebar.jsx';
-
 import { isNumber } from "@mui/x-data-grid/internals";
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -474,79 +471,7 @@ this.relay1fonkI_0(0);
 
     }
     
-   /* {
-      console.log("1.röle  I> ve I >> ÇALIŞMALI")
-      const newdataY = [];
-      let index=0;
-      for (let i = 0; i <=7000; i+=50) {
-         ////1. kademenin ayarları hesaplanıyor..
-        if(i>=(iicm1*iict1)){
-          break;
-        }
-        
-         let y1 = tms1*(k1 / (Math.pow(KisaDevreAkimlari[index] / (ct1*cmt1), a1) - 1));
-     
-     
-         if(y1==Infinity){
-           y1=1;
-         }
-       else  if(KisaDevreAkimlari[index]< (ct1*cmt1)){
-           y1=0.0000001
-         }
-         newdataY.push(y1.toFixed(3));
-         index++
-       }
-      console.log(DTİİ1)
-      if (DTİİ1===false){
-        for(let ii=(iicm1*iict1) ; ii<=7000;ii+=50){
-          /// ikinci kademenin eğri ayarlarına geçiliyor.. 
-          let y2 = iitms1*(k1 / (Math.pow(KisaDevreAkimlari[index] / (iicm1*iict1), a1) - 1));
-    
-          if(y2==Infinity){
-            y2=1;
-          }
-        else  if(KisaDevreAkimlari[index]< (iicm1*iict1)){
-            y2=0.0000001
-          }
-          newdataY.push(y2.toFixed(3));
-          index++
-        }
-      }
-      else{
-        for(let ii=(iicm1*iict1) ; ii<=7000;ii+=50){
-          newdataY.push(iitms1);
-          index++
-        }
-  
-  
-      }
-      
-     // Series dizisini güncelleme
-     this.setState(prevState => ({
-      series: prevState.series.map((serie, index) => {
-        // Eğer mevcut indeks n ise, data özelliğini güncelle
-        if (index === n) {
-          return {...serie, data: newdataY };
-        }
-        // Diğer tüm elemanlar değişmeden kalır
-        return serie;
-      }),
-      options: {
-          ...this.state.options,
-          xaxis: {
-              categories:KisaDevreAkimlari,
-              type: 'Amper',
-              title: {
-                  text: 'Kisa Devre Akimleri (Amper)'
-                },
-                tickAmount: 10, // Başlangıçta gösterilecek maksimum etiket sayısı
-            },
-    
-        },
-        
-    
-    }));
-    }*/
+   
   }
   relay2fonkI_0=(n)=>{
     const {KisaDevreAkimlari, tms2, ct2, cmt2,k2,a2/*,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3,iitms1,iict1,iicm1,iiitms1,iiict1,iiicm1,DTİİ1,DTİİİ1*/  } = this.state;

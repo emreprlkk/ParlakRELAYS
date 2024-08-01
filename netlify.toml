@@ -1,9 +1,7 @@
 [[redirects]]
   from = "/*"
-  to = "/ConfigAndSim"
+  to = "/index.html"
   status = 200
-
-
 
 
 
