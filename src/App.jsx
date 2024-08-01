@@ -15,14 +15,7 @@ import './form.css'
 import Singup from './Components/Singupx.jsx';
 import Blogx from './Components/Blogx.jsx'
 
-
-
-
-
- 
 function App  (){
-
-
 
 //console.log(values)
   return (

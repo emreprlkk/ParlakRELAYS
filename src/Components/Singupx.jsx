@@ -149,7 +149,7 @@ const inputs2=[
   return (
     <div className='App_LoginPage' >
     
-  <form onSubmit={handleSubmit} > 
+  <form className='form' onSubmit={handleSubmit} > 
 
  
   
@@ -182,7 +182,8 @@ const inputs2=[
 
  ))}*/}
 
-  <div className='formgecisi' onClick={()=> setIsSignUp(!isSignUp) }   > {isSignUp ?  "Hesabınız Var Mı?Giriş Yapın" : "Hesabınız Yok Mu?Kayıt olun"}  </div> 
+  <div className='formgecisi' onClick={()=> setIsSignUp(!isSignUp) }   > 
+  {isSignUp ?  "Hesabınız Var Mı?Giriş Yapın" : "Hesabınız Yok Mu?Kayıt olun"}  </div> 
 <button className='buttonSingupSingın' onClick={authFonc}>{isSignUp ? 'Kayıt Ol' : 'Giriş Yap'} </button>
   </form>
   <ToastContainer

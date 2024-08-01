@@ -2,12 +2,40 @@ body {
     font-family: Arial, sans-serif;
   }
   
+/* Mobil için media query */
+@media (max-width: 480px) {
+  .sidebar {
+    position: fixed;
+     height: 100%;
+     width: 100px !important;
+    
+   }
+
+   .DeveloperText{
+    width: 180px; 
+    height: 200px;
+   font-size: 12px ;
+   text-align: start;
+  
+  
+    margin-top:250px; 
+    display: absolute;
+    justify-content: center;
+    align-items: center;
+    border :1px solid red
+   
+
+
+  }
+   
+}
+
   .sidebar {
    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 25vh;
+    width: 180px;
     background-color: #333;
     color: white;
     transition: transform 0.3s ease;
@@ -61,14 +89,17 @@ body {
     text-decoration: underline;
   }
   .DeveloperText{
-    width: 20vh;
-    height: 10vh;
-   font-size: small;
+    width: 180px; 
+    height: 20px;
+   font-size: 12px ;
+   text-align: start;
   
-    margin-top: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: end;
+  
+    margin-top:70%; 
+    display: absolute;
+    justify-content: start;
+    align-items: start;
+    border :1px solid red
    
 
 

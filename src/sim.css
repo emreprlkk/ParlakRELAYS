@@ -19,10 +19,10 @@
 }*/
 
 /* Mobil için media query */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .Anadiv_sim{
     width: 1px !important;
-   margin-left:40px !important;
+   margin-left:120px !important;
     background-color: white !important;
     flex-direction: column;
     align-items: center; /* İçerideki öğelerin ortalanmasını sağlar */

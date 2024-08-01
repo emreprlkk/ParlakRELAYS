@@ -1,3 +1,23 @@
+
+/* Mobil için media query */
+@media (max-width: 600px) {
+    .formInput{
+      
+        width: 200px !important;
+         padding: 2px !important;
+         margin:5px 0px;   
+        }
+        .formInput{
+           
+            width: 200px !important;
+             padding: 10px !important;
+             margin:0px 0px !important;   
+            }
+}
+
+
+
+
 .formInput{
 display: flex;
 flex-direction: column;
@@ -10,7 +30,7 @@ input{
 padding: 10px;
 margin: 5px 0px;
 border-radius: 5px;
-border:1px solid gray
+border:1px solid purple
 }
 .SingErrorMessage{
     font-size: 12px;
