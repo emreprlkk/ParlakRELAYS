@@ -10,21 +10,18 @@ body {
      width: 100px !important;
     
    }
+   .welcome{
+    margin-right: 3px;
+    font-size:14px !important;
+
+  }
 
    .DeveloperText{
-    width: 180px; 
-    height: 200px;
-   font-size: 12px ;
-   text-align: start;
-  
-  
-    margin-top:250px; 
-    display: absolute;
-    justify-content: center;
-    align-items: center;
-    border :1px solid red
-   
-
+    width: 90px !important; 
+    height: 20px !important;
+   font-size: 10px !important;
+   margin-left: 0px !important;
+    margin-top:110px !important; 
 
   }
    
@@ -93,14 +90,17 @@ body {
     height: 20px;
    font-size: 12px ;
    text-align: start;
-  
-  
     margin-top:70%; 
-    display: absolute;
-    justify-content: start;
-    align-items: start;
-    border :1px solid red
+    display: flex;
+   
+
    
 
 
+  }
+  .welcome{
+   
+    text-align: center;
+    font-size: large;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
   }

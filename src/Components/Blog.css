@@ -1,57 +1,87 @@
 .App {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  
-  .blog {
-    max-width: 800px;
-    margin: 0 auto;
-    margin-top: 30px;
-    padding: 20px;
-    border: 1px solid #2d2a2a;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  .blog h1 {
-    text-align: center;
-    color: #333;
-  }
-  
-  .questions {
-    margin-top: 20px;
-  }
-  
-  .question-answer {
-    margin-bottom: 10px;
-  }
-  
-  .question {
-    cursor: pointer;
-    color: hsla(210, 4%, 10%, 0.919);
-    margin-bottom: 5px;
-  }
-  
-  .question:hover {
-    text-decoration: underline;
-  }
-  
-  .answer {
-    padding: 10px;
-    border-left: 3px solid #007bff;
-    background-color: #eef6ff;
-    list-style-type: disc;
-    margin-left: 20px;
-  }
-  
-  .answer li {
-    margin-bottom: 5px;
-    font-size: 1.2em; /* Bullet point ile birlikte metni de büyütmek için */
-  }
-  
-  /* Bullet point büyüklüğünü ve rengini ayarlamak için ::marker kullanımı */
-  .answer li::marker {
-    font-size: 1.5em; /* Bullet point büyüklüğü */
-    color: #007bff; /* Bullet point rengi */
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+
+.blog {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #2d2a2a;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center; /* Merkez hizalama */
+}
+
+.blog h1 {
+  text-align: center;
+  color: #333;
+}
+
+.photo-container {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  overflow: hidden; /* Taşmayı engelle */
+  width: 300px; /* Konteynerin genişliği */
+  height: 300px; /* Konteynerin yüksekliği */
+  border-radius: 50%;
+  border: 3px solid black;
+  margin-left: 30%;
+}
+
+.photo {
+  width: 650px;
+  height: 450px;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+.photo-container:hover .photo {
+  transform: scale(1.5);
+}
+.about-me {
+  text-align: left;
+  margin-top: 20px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.questions {
+  margin-top: 20px;
+}
+
+.question-answer {
+  margin-bottom: 10px;
+}
+
+.question {
+  cursor: pointer;
+  color: hsla(210, 4%, 10%, 0.919);
+  margin-bottom: 5px;
+}
+
+.question:hover {
+  text-decoration: underline;
+}
+
+.answer {
+  padding: 10px;
+  border-left: 3px solid #007bff;
+  background-color: #eef6ff;
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.answer li {
+  margin-bottom: 5px;
+  font-size: 1.2em; /* Bullet point ile birlikte metni de büyütmek için */
+}
+
+/* Bullet point büyüklüğünü ve rengini ayarlamak için ::marker kullanımı */
+.answer li::marker {
+  font-size: 1.5em; /* Bullet point büyüklüğü */
+  color: #007bff; /* Bullet point rengi */
+}

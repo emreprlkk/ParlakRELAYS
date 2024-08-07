@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth, signInWithEmailAndPassword,createUserWithEmailAndPassword  } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -20,10 +20,12 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app); 
+//const analytics = getAnalytics(app); 
+const db = getFirestore(app);
+
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
-
+export { db };
 /*  VITE_REACT_APP_FIREBASE_API_KEY="AIzaSyCpqTNP0epJD9JmCX4tmHObuPTeLMoness"
   VITE_REACT_APP_FIREBASE_AUTH_DOMAIN="parlakrelays.firebaseapp.com"
   VITE_REACT_APP_FIREBASE_PROJECT_ID="parlakrelays"

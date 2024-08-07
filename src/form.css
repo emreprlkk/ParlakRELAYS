@@ -72,18 +72,31 @@
     background-color: #fde68a;
   }
   
+  .DropdownOpen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+      background-color: rgb(107, 239, 107);
+      padding: 2px;
+      border:#201d1d;
+      border-radius: 70px;
+      width: 26vh !important;
+      font-size: small;
+    }
 
-  /*
+ 
   .kare:hover {
-    transform: scale(1.05);
-  }*/
+    transform: scale(0);
+  }
   
   .tanitim {
     width: 33vh;
     height: 50px;
     color: #201d1d;
     font-size: 12px;
-    margin-bottom: 5vh;
+    margin-bottom: 20px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -96,22 +109,7 @@
     
   }
   
-  .side-div {
-    width: 70vh;
-    height: 30vh;
-    background-color: #9A7AA0;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 5vh;
-    display: flex;
-  }
-  
-  .yazi {
-    margin-top: 5vh;
-    background-color: #B4EDD2;
-    margin-left: 130vh;
-  }
-  
+
   .form-container_2_1,
   .form-container_2_2 {
     width: 20vh;
@@ -139,6 +137,7 @@
   margin-left: 300px;
   margin-top: 20px;
   padding: 10px;
+ 
 }
 
 .form-container1,
@@ -148,12 +147,11 @@
 .form-container5 {
   height: 150px;
   width: 150px;
-  
   margin: 10px;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+ 
 }
 
 
@@ -172,40 +170,19 @@
 }
 
 .form-container3 {
-  background-color: #4b5563;
+  background-color: #e65100;
 }
 
 .form-container4 {
-  background-color: #fde68a;
+  background-color: #01579b;
 }
-
-
-/*
-.kare:hover {
-  transform: scale(1.05);
-}*/
 
 .tanitim {
-  margin-left: 50vh;
-}
-
-.side-div {
-  width: 70vh;
-  height: 30vh;
-  background-color: #9A7AA0;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-left: 5vh;
-  display: flex;
+  margin-left: 380px;
 }
 
 
 
-.yazi {
-  margin-top: 5vh;
-  background-color: #B4EDD2;
-  margin-left: 130vh;
-}
 
 
 
@@ -254,4 +231,19 @@ justify-content: center;
   border-radius: 70px;
   width: 90px;
   font-size: small;
+}
+.relayheadertext{
+  text-align: center;
+  margin-bottom: 2px;
+  font-weight: bold;
+  color: #fff;
+  border: solid red;
+  border-radius: 15px;
+  background-color: black;
+
+  
+
+}
+.kare:hover {
+  transform: scale(1.05);
 }

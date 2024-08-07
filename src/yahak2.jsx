@@ -8,13 +8,19 @@ import Select from 'react-select'
 import Sidebar from './ModernSidebar.jsx';
 import { isNumber } from "@mui/x-data-grid/internals";
 import { toast, ToastContainer } from 'react-toastify';
-
-
+import LoaderComponent from './LoaderComponent.jsx';
 const options = [
   { value: 'NI', label: 'Nominal Inverse' },
   { value: 'VI', label: 'Very Inverse' },
   { value: 'EI', label: 'Extremely Inverse' },
-  { value: 'LTSI', label: 'Long Time Standard Inverse' },
+  { value: 'LTSI', label: 'Long Time Inverse' },
+];
+
+const optionsii = [
+  { value: 'NI', label: 'Nominal Inverse' },
+  { value: 'VI', label: 'Very Inverse' },
+  { value: 'EI', label: 'Extremely Inverse' },
+  { value: 'LTSI', label: 'Long Time Inverse' },
   { value: 'DFT', label: 'Definite Tme' }
 ];
 
@@ -35,7 +41,9 @@ class Emre2 extends Component {
       cmt1: '',
       DataY_1:[],
       KisaDevreAkimlari:KisaDevreAkimlari_default,
+      loading: false,
 
+      
       DTİİ1:false,
       DTİİ2:false,
       DTİİ3:false,
@@ -64,9 +72,30 @@ class Emre2 extends Component {
       a4:0.02,
       k5: 0.14,
       a5:0.02,
-      selectedOption: 'NI', // Seçili seçeneği tutacak durum
+
+      iik1: 0.14,
+      iia1:0.02,
+      iik2: 0.14,
+      iia2:0.02,
+      iik3: 0.14,
+      iia3:0.02,
+      iik4: 0.14,
+      iia4:0.02,
+      iik5: 0.14,
+      iia5:0.02,
+      Röle1Egri: 'Eğri Tipi', // Seçili seçeneği tutacak durum
+      Röle2Egri: 'Eğri Tipi',
+      Röle3Egri: 'Eğri Tipi',
+      Röle4Egri: 'Eğri Tipi',
+      Röle5Egri: 'Eğri Tipi',
+
+      Röle1Egri_ii: 'Eğri Tipi',
+      Röle2Egri_ii: 'Eğri Tipi',
+      Röle3Egri_ii: 'Eğri Tipi',
+      Röle4Egri_ii: 'Eğri Tipi',
+      Röle5Egri_ii: 'Eğri Tipi',
+      // Seçili seçeneği tutacak durum
       
-   
       tms2: '',
       ct2: '',
       cmt2: '',
@@ -179,7 +208,17 @@ class Emre2 extends Component {
         },
         title: {
           text: 'PARLAK RELAY GRAPH',
-          align: 'center'
+          align: 'center',
+          margin: 60,
+          offsetX: 0,
+          offsetY: 0,
+          floating: false,
+          style: {
+            fontSize:  '14px',
+            fontWeight:  'bold',
+            fontFamily:  undefined,
+            color:  'black'
+          }
         },
         fill: {
         //  type: 'gradient',
@@ -209,7 +248,7 @@ class Emre2 extends Component {
             },
             tickAmount: 10, // Başlangıçta gösterilecek maksimum etiket sayısı
         },
-        colors: ['#000000', '#34d399', '#4b5563', '#fde68a','#A5A58D'], // Çizgi renkleri burada ayarlanır,
+        colors: ['#000000', '#34d399', '#e65100', '#01579b','#A5A58D'], // Çizgi renkleri burada ayarlanır,
         tooltip: {
             theme: 'dark', // 'dark' veya 'light' temayı seçebilirsiniz
             style: {
@@ -228,10 +267,10 @@ class Emre2 extends Component {
     this.handleChange1 = this.handleChange1.bind(this);
     this.calculateData1 = this.calculateData1.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
- this.calculateData2 = this.calculateData2.bind(this);
-  this.handleChange3 = this.handleChange3.bind(this);
-  this.calculateData3 = this.calculateData3.bind(this);
-   this.handleChange4 = this.handleChange4.bind(this);
+    this.calculateData2 = this.calculateData2.bind(this);
+    this.handleChange3 = this.handleChange3.bind(this);
+    this.calculateData3 = this.calculateData3.bind(this);
+    this.handleChange4 = this.handleChange4.bind(this);
     this.calculateData4 = this.calculateData4.bind(this);
    this.handleChange5 = this.handleChange5.bind(this);
   this.calculateData5 = this.calculateData5.bind(this);
@@ -241,29 +280,30 @@ class Emre2 extends Component {
   }
 
   componentDidMount() {
-    this.handleChange();
+    //ilk kez render edildiğinde ve DOM'a eklendiğinde tek seferlik çalışır.
+    //sadece ilk render sonrası çağrılır ve componentin props veya state değiştiğinde tekrar çağrılmez.
+   /* this.handleChange();
     this.calculateData1();
    this.calculateData2();
     this.calculateData3();
     this.calculateData4();
    this.calculateData5();
    this.handleInputChange();
-   this.DropDown2();
+   this.DropDown2();*/
 
 
   }
-  componentDidUpdate(prevProps) {
-    const { tms1, ct1, cmt1,k,a,Kisa_Devre_React_Table,dataY2_React_Table } = this.state;
-    if (prevProps.inputValues !== this.props.inputValues) {
-      console.log('Input values updated:', this.props.inputValues);
-      let y1 = tms1*(k / (Math.pow(this.props.inputValues[0] / (ct1*cmt1), a) - 1));
-      console.log('Input values röle açma saniyesi :', +y1);
-    }
+ componentDidUpdate(prevState) {
+  // bir React componentinin props veya state değiştiğinde her seferinde çağrılır.
+  //componentDidUpdate her render sonrası çağrılır, yani hem ilk render sonrası hem de props/state değişiklikleri sonrası çağrılır.
+   // Eğer progress değerimiz değiştiyse, bu metodu tetikleyin
+
+    
+  
   }
    
   handleChange1(e) {
     //alert('Please fill in all fields.');
-
     const { name, value } = e.target;
     this.setState({ [name]: parseFloat(value) }, () => this.calculateData1(0));
   }
@@ -329,9 +369,10 @@ class Emre2 extends Component {
     const { name, value } = e.target;
     this.setState({ [name]: parseFloat(value) }, () => this.calculateData5(4));
   }
-  relay1fonkI_0=(n)=>{
-  const {KisaDevreAkimlari, tms1, ct1, cmt1,k1,a1/*,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3,iitms1,iict1,iicm1,iiitms1,iiict1,iiicm1,DTİİ1,DTİİİ1*/  } = this.state;
-    { 
+  relay1fonkI_0= async(n)=>{
+  const {KisaDevreAkimlari, tms1, ct1, cmt1,k1,a1  } = this.state;
+  this.setState({ loading: true });
+  { 
       // 1. rölede  sadece I> hesaplaması yapılıyor.
       console.log("1.röle I> ÇALIŞMALI")
         const newdataY = [];
@@ -354,44 +395,44 @@ class Emre2 extends Component {
           index++
         }
     
-       this.setState(prevState => ({
-        series: prevState.series.map((serie, index) => {
-          // Eğer mevcut indeks n ise, data özelliğini güncelle
-          if (index === n) {
-            return {...serie, data: newdataY };
-          }
-          // Diğer tüm elemanlar değişmeden kalır
-          return serie;
-        }),
-        options: {
+        this.setState(prevState =>
+           ({
+          series: prevState.series.map((serie, index) => {
+            if (index === n) {
+              return { ...serie, data: newdataY };
+            }
+            return serie;
+          }),
+          options: {
             ...this.state.options,
-            
             xaxis: {
-                categories:KisaDevreAkimlari,
-                type: 'Amper',
-                title: {
-                    text: 'Kisa Devre Akimleri (Amper)'
-                  },
-                  tickAmount: 10, // Başlangıçta gösterilecek maksimum etiket sayısı
+              categories: KisaDevreAkimlari,
+              type: 'Amper',
+              title: {
+                text: 'Kisa Devre Akimleri (Amper)',
               },
-      
+              tickAmount: 10,
+            },
           },
-          
-      
-      }));
-      console.log("I>0 IN 1.RÖLE İÇİN DERLNEMİŞ OLMASIL AIZM")
+        }), 
+        () => {
+          this.setState({ loading: false });
+         
+        });
       }
+   
+  
+
   }
-  relay1fonkI_00=(n)=>{
-    const {KisaDevreAkimlari, tms1, ct1, cmt1,k1,a1,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3,iitms1,iict1,iicm1,iiitms1,iiict1,iiicm1,DTİİ1,DTİİİ1  } = this.state;
-  //console.log("relay00 iitms1"+iitms1)
-  //console.log((iitms1.trim()==''||isNaN(iitms1)) )
- // console.log((iict1.trim()==''|| isNaN(iict1))  )
- // console.log( (iicm1.trim()=='' ||isNaN(iicm1) ) )
+  relay1fonkI_00= async(n)=>{
+    const {KisaDevreAkimlari, tms1, ct1, cmt1,iik1,iia1,iitms1,iict1,iicm1,DTİİ1 ,k1,a1 } = this.state;
+
+      this.setState({ loading: true });
+      
     if (isNumber(tms1) && isNumber(ct1) && isNumber(cmt1) && ( (iitms1==''||isNaN(iitms1)) || (iict1==''|| isNaN(iict1))  
    || (iicm1=='' ||isNaN(iicm1) )) ) {
 //2. kademe aktif olmasına rağmen sadece 1. kademede veri var sadece 1. kademeyi hesaplatıp grafikte göstert.
-console.log("relay00 çalıştı "+iitms1)
+
 this.relay1fonkI_0(0);
 
     }
@@ -406,8 +447,7 @@ this.relay1fonkI_0(0);
           break;
         }
         
-         let y1 = tms1*(k1 / (Math.pow(KisaDevreAkimlari[index] / (ct1*cmt1), a1) - 1));
-     
+         let y1 = tms1*(k1 / (Math.pow(KisaDevreAkimlari[index] / (ct1*cmt1),a1) - 1));
      
          if(y1==Infinity){
            y1=1;
@@ -418,11 +458,11 @@ this.relay1fonkI_0(0);
          newdataY.push(y1.toFixed(3));
          index++
        }
-      console.log(DTİİ1)
+     // console.log(DTİİ1)
       if (DTİİ1===false){
         for(let ii=(iicm1*iict1) ; ii<=7000;ii+=50){
           /// ikinci kademenin eğri ayarlarına geçiliyor.. 
-          let y2 = iitms1*(k1 / (Math.pow(KisaDevreAkimlari[index] / (iicm1*iict1), a1) - 1));
+          let y2 = iitms1*(iik1 / (Math.pow(KisaDevreAkimlari[index] / (iicm1*iict1), iia1) - 1));
     
           if(y2==Infinity){
             y2=1;
@@ -444,7 +484,8 @@ this.relay1fonkI_0(0);
       }
       
      // Series dizisini güncelleme
-     this.setState(prevState => ({
+     this.setState(prevState => 
+      ({
       series: prevState.series.map((serie, index) => {
         // Eğer mevcut indeks n ise, data özelliğini güncelle
         if (index === n) {
@@ -467,14 +508,25 @@ this.relay1fonkI_0(0);
         },
         
     
-    }));
+    }),
+    () => {
+      this.setState({ loading: false });
+     
+    });
+    
+    
+    
 
     }
     
    
   }
-  relay2fonkI_0=(n)=>{
-    const {KisaDevreAkimlari, tms2, ct2, cmt2,k2,a2/*,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3,iitms1,iict1,iicm1,iiitms1,iiict1,iiicm1,DTİİ1,DTİİİ1*/  } = this.state;
+  relay2fonkI_0= async(n)=>{
+    const {KisaDevreAkimlari, tms2, ct2, cmt2,k2,a2  } = this.state;
+
+      this.setState({ loading: true });
+     
+
       { 
         // 1. rölede  sadece I> hesaplaması yapılıyor.
         console.log("2.röle I> ÇALIŞMALI")
@@ -498,7 +550,8 @@ this.relay1fonkI_0(0);
             index++
           }
       
-         this.setState(prevState => ({
+         this.setState(prevState => 
+          ({
           series: prevState.series.map((serie, index) => {
             // Eğer mevcut indeks n ise, data özelliğini güncelle
             if (index === n) {
@@ -522,21 +575,24 @@ this.relay1fonkI_0(0);
             },
             
         
-        }));
-        console.log("I>0 IN 2.RÖLE İÇİN DERLENMİŞ OLMASIL AIZM")
+        }),() => {
+          this.setState({ loading: false });
+         
+        });
+       
         }
     }
  
-  relay2fonkII_00=(n)=>{
-    const {KisaDevreAkimlari, tms2, ct2, cmt2,k2,a2,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3,iitms2,iict2,iicm2,iiitms2,iiict2,iiicm2,DTİİ2,DTİİİ2  } = this.state;
-  //console.log("relay00 iitms1"+iitms1)
-  //console.log((iitms1.trim()==''||isNaN(iitms1)) )
- // console.log((iict1.trim()==''|| isNaN(iict1))  )
- // console.log( (iicm1.trim()=='' ||isNaN(iicm1) ) )
+  relay2fonkII_00= async(n)=>{
+    const {KisaDevreAkimlari, tms2, ct2, cmt2,k2,a2,iitms2,iict2,iicm2,DTİİ2,iik2,iia2 } = this.state;
+ 
+      this.setState({ loading: true });
+     
+   
     if (isNumber(tms2) && isNumber(ct2) && isNumber(cmt2) && ( (iitms2==''||isNaN(iitms2)) || (iict2==''|| isNaN(iict2))  
    || (iicm2=='' ||isNaN(iicm2) )) ) {
 //2. kademe aktif olmasına rağmen sadece 1. kademede veri var sadece 1. kademeyi hesaplatıp grafikte göstert.
-console.log("relay00 çalıştı "+iitms2)
+
 this.relay2fonkI_0(1);
 
     }
@@ -563,11 +619,11 @@ this.relay2fonkI_0(1);
          newdataY.push(y2.toFixed(3));
          index++
        }
-      console.log(DTİİ2)
+
       if (DTİİ2===false){
         for(let ii=(iicm2*iict2) ; ii<=7000;ii+=50){
           /// ikinci kademenin eğri ayarlarına geçiliyor.. 
-          let y2 = iitms2*(k2 / (Math.pow(KisaDevreAkimlari[index] / (iicm2*iict2), a2) - 1));
+          let y2 = iitms2*(iik2 / (Math.pow(KisaDevreAkimlari[index] / (iicm2*iict2), iia2) - 1));
     
           if(y2==Infinity){
             y2=1;
@@ -589,7 +645,8 @@ this.relay2fonkI_0(1);
       }
       
      // Series dizisini güncelleme
-     this.setState(prevState => ({
+     this.setState(prevState => 
+      ({
       series: prevState.series.map((serie, index) => {
         // Eğer mevcut indeks n ise, data özelliğini güncelle
         if (index === n) {
@@ -612,14 +669,21 @@ this.relay2fonkI_0(1);
         },
         
     
-    }));
+    }),() => {
+      this.setState({ loading: false });
+     
+    });
 
     }
     
   
   }
-  relay3fonkI_0=(n)=>{
-    const {KisaDevreAkimlari, tms3, ct3, cmt3,k3,a3/*,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3,iitms1,iict1,iicm1,iiitms1,iiict1,iiicm1,DTİİ1,DTİİİ1*/  } = this.state;
+  relay3fonkI_0= async(n)=>{
+    const {KisaDevreAkimlari, tms3, ct3, cmt3,k3,a3   } = this.state;
+
+      this.setState({ loading: true });
+     
+
       { 
         // 3. rölede  sadece I> hesaplaması yapılıyor.
         console.log("3.röle I> ÇALIŞMALI")
@@ -643,7 +707,8 @@ this.relay2fonkI_0(1);
             index++
           }
       
-         this.setState(prevState => ({
+         this.setState(prevState => 
+          ({
           series: prevState.series.map((serie, index) => {
             // Eğer mevcut indeks n ise, data özelliğini güncelle
             if (index === n) {
@@ -667,17 +732,19 @@ this.relay2fonkI_0(1);
             },
             
         
-        }));
-        console.log("I>0 IN 3.RÖLE İÇİN DERLENMİŞ OLMASIL AIZM")
+        }),() => {
+          this.setState({ loading: false });
+         
+        });
+  
         }
     }
-    relay3fonkII_00=(n)=>{
+    relay3fonkII_00= async(n)=>{
 
-      const {KisaDevreAkimlari, tms3, ct3, cmt3,k3,a3,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3,iitms3,iict3,iicm3,iiitms2,iiict2,iiicm2,DTİİ3,DTİİİ3  } = this.state;
-    //console.log("relay00 iitms1"+iitms1)
-    //console.log((iitms1.trim()==''||isNaN(iitms1)) )
-   // console.log((iict1.trim()==''|| isNaN(iict1))  )
-   // console.log( (iicm1.trim()=='' ||isNaN(iicm1) ) )
+      const {KisaDevreAkimlari, tms3, ct3, cmt3,k3,a3,iitms3,iict3,iicm3,DTİİ3,iik3,iia3  } = this.state;
+  
+        this.setState({ loading: true });
+       
       if (isNumber(tms3) && isNumber(ct3) && isNumber(cmt3) && ( (iitms3==''||isNaN(iitms3)) || (iict3==''|| isNaN(iict3))  
      || (iicm3=='' ||isNaN(iicm3) )) ) {
   //2. kademe aktif olmasına rağmen sadece 1. kademede veri var sadece 1. kademeyi hesaplatıp grafikte göstert.
@@ -708,11 +775,11 @@ this.relay2fonkI_0(1);
            newdataY.push(y3.toFixed(3));
            index++
          }
-        console.log(DTİİ3)
+       
         if (DTİİ3===false){
           for(let ii=(iicm3*iict3) ; ii<=7000;ii+=50){
             /// ikinci kademenin eğri ayarlarına geçiliyor.. 
-            let y3 = iitms3*(k3 / (Math.pow(KisaDevreAkimlari[index] / (iicm3*iict3), a3) - 1));
+            let y3 = iitms3*(iik3 / (Math.pow(KisaDevreAkimlari[index] / (iicm3*iict3), iia3) - 1));
       
             if(y3==Infinity){
               y3=0.0000001;
@@ -757,14 +824,20 @@ this.relay2fonkI_0(1);
           },
           
       
-      }));
+      }),() => {
+        this.setState({ loading: false });
+       
+      });
   
       }
       
     
     }
-    relay4fonkI_0=(n)=>{  const {KisaDevreAkimlari, tms4,
+    relay4fonkI_0=async(n)=>{  const {KisaDevreAkimlari, tms4,
        ct4, cmt4,k4,a4,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3,iitms4,iict4,iicm4,iiitms4,iiict4,iiicm4,DTİİ4,DTİİİ4  } = this.state;
+      
+        this.setState({ loading: true });
+       
 
        { 
         // 4. rölede  sadece I> hesaplaması yapılıyor.
@@ -813,15 +886,21 @@ this.relay2fonkI_0(1);
             },
             
         
-        }));
-        console.log("I>0 IN 4.RÖLE İÇİN DERLENMİŞ OLMASI LAZIM")
+        }),() => {
+          this.setState({ loading: false });
+         
+        });
+    
         }
 
     }
-    relay4fonkII_0=(n)=>{
+    relay4fonkII_0=async(n)=>{
       const {KisaDevreAkimlari, tms4,
-        ct4, cmt4,k4,a4,iitms4,iict4,iicm4,iiitms4,iiict4,iiicm4,DTİİ4,DTİİİ4  } = this.state;
+        ct4, cmt4,k4,a4,iitms4,iict4,iicm4,DTİİ4,iik4,iia4  } = this.state;
  
+          this.setState({ loading: true });
+         
+    
       if (isNumber(tms4) && isNumber(ct4) && isNumber(cmt4) && ( (iitms4==''||isNaN(iitms4)) || (iict4==''|| isNaN(iict4))  
       || (iicm4=='' ||isNaN(iicm4) )) ) {
    //2. kademe aktif olmasına rağmen sadece 1. kademede veri var sadece 1. kademeyi hesaplatıp grafikte göstert.
@@ -855,7 +934,7 @@ this.relay2fonkI_0(1);
          if (DTİİ4===false){
            for(let ii=(iicm4*iict4) ; ii<=7000;ii+=50){
              /// ikinci kademenin eğri ayarlarına geçiliyor.. 
-             let y4 = iitms4*(k4 / (Math.pow(KisaDevreAkimlari[index] / (iicm4*iict4), a4) - 1));
+             let y4 = iitms4*(iik4 / (Math.pow(KisaDevreAkimlari[index] / (iicm4*iict4), iia4) - 1));
        
              if(y4==Infinity){
                y4=0.0000001;
@@ -900,14 +979,20 @@ this.relay2fonkI_0(1);
            },
            
        
-       }));
+       }),() => {
+        this.setState({ loading: false });
+       
+      });
    
        }
 
     }
-    relay5fonkI_0=(n)=>{  const {KisaDevreAkimlari, tms5,
+    relay5fonkI_0= async(n)=>{  const {KisaDevreAkimlari, tms5,
       ct5, cmt5,k5,a5,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon5,iitms5,iict5,iicm5,iiitms5,iiict5,iiicm5,DTİİ5,DTİİİ5  } = this.state;
-
+    
+        this.setState({ loading: true });
+       
+  
       { 
        // 5. rölede  sadece I> hesaplaması yapılıyor.
        console.log("5.röle I> ÇALIŞMALI")
@@ -955,14 +1040,20 @@ this.relay2fonkI_0(1);
            },
            
        
-       }));
-       console.log("I>0 IN 5.RÖLE İÇİN DERLENMİŞ OLMASI LAZIM")
+       }),() => {
+        this.setState({ loading: false });
+       
+      });
+      
        }
 
    }
-   relay5fonkII_0=(n)=>{
+   relay5fonkII_0= async(n)=>{
     const {KisaDevreAkimlari, tms5,
-      ct5, cmt5,k5,a5,iitms5,iict5,iicm5,iiitms5,iiict5,iiicm5,DTİİ5,DTİİİ5  } = this.state;
+      ct5, cmt5,k5,a5,iitms5,iict5,iicm5,DTİİ5,iik5,iia5  } = this.state;
+
+        this.setState({ loading: true });
+
 
     if (isNumber(tms5) && isNumber(ct5) && isNumber(cmt5) && ( (iitms5==''||isNaN(iitms5)) || (iict5==''|| isNaN(iict5))  
     || (iicm5=='' ||isNaN(iicm5) )) ) {
@@ -993,11 +1084,11 @@ this.relay2fonkI_0(1);
           newdataY.push(y5.toFixed(3));
           index++
         }
-       console.log(DTİİ5)
+       
        if (DTİİ5===false){
          for(let ii=(iicm5*iict5) ; ii<=7000;ii+=50){
            /// ikinci kademenin eğri ayarlarına geçiliyor.. 
-           let y5 = iitms5*(k5/ (Math.pow(KisaDevreAkimlari[index] / (iicm5*iict5), a5) - 1));
+           let y5 = iitms5*(iik5/ (Math.pow(KisaDevreAkimlari[index] / (iicm5*iict5), iia5) - 1));
      
            if(y5==Infinity){
              y5=0.0000001;
@@ -1042,7 +1133,10 @@ this.relay2fonkI_0(1);
          },
          
      
-     }));
+     }),() => {
+      this.setState({ loading: false });
+     
+    });
  
      }
 
@@ -1175,8 +1269,6 @@ else  if(KisaDevreAkimlari[index]< (ct1*cmt1)){
 }
 
 }
-
-  
   calculateData2(n) {
     const {KisaDevreAkimlari, tms2, ct2, cmt2,k2,a2,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3,
       iitms2,iict2,iicm2,iiitms2,iiict2,iiicm2,DTİİ2,DTİİİ2  } = this.state;
@@ -1313,7 +1405,7 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
        
   }
   calculateData3(n) {
-    const {isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3, tms3, ct3, cmt3,k3,a3,iitms3,iict3,iicm3,iiitms3,iiict3,iiicm3 } = this.state;
+    const {isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3, tms3, ct3, cmt3,k3,a3,iitms3,iict3,iicm3 } = this.state;
       if(isVisibleDropİcon1 && isVisibleDropİcon2===false && isVisibleDropİcon3===false && (isNumber(tms3) && isNumber(ct3) && isNumber(cmt3)))
     //3. RÖLEDE SADECE I>0 KULLANILIYOR DEMEKTİR.
     {this.relay3fonkI_0(2)
@@ -1326,7 +1418,6 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
        
   }
 }
-
   calculateData4(n) {
     const {KisaDevreAkimlari, tms4,  ct4, cmt4,k4,a4,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3,iitms4,iict4,iicm4,iiitms4,iiict4,iiicm4,DTİİ4,DTİİİ4  } = this.state;
     
@@ -1345,10 +1436,9 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
      
 }  
   }
-
   calculateData5(n) {
-    const {KisaDevreAkimlari, tms5,  ct5, cmt5,k5,a5,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3,iitms5,iict5,iicm5,
-      iiitms5,iiict5,iiicm5,DTİİ5,DTİİİ5 } = this.state;
+    const { tms5,  ct5, cmt5,k5,a5,isVisibleDropİcon1,isVisibleDropİcon2,isVisibleDropİcon3,iitms5,iict5,iicm5
+      } = this.state;
     
     const newDataY = [];
     let index =  0;
@@ -1366,11 +1456,11 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
 }  
   }
 
-  handleChange = (selectedOption) => {
-
+  handleChange = (Röle1Egri) => {
+      
     //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
-    if (selectedOption && selectedOption.value === 'NI') {
-      this.setState({ k1: 0.14,DTİİ1:false,  a1: 0.02,selectedOption:'Nominal Inverse' }, () => {
+    if (Röle1Egri && Röle1Egri.value === 'NI') {
+      this.setState({ k1: 0.14,DTİİ1:false,  a1: 0.02,Röle1Egri:'Nominal Inverse' }, () => {
    //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
         this.calculateData1(0);
         this.hesapKitap();
@@ -1378,36 +1468,31 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
       });
       
     }
-    else if (selectedOption && selectedOption.value === 'VI') {
-      this.setState({ k1: 13.5,DTİİ1:false,  a1: 1,selectedOption:'Very Inverse' }, () => {
+    else if (Röle1Egri && Röle1Egri.value === 'VI') {
+      this.setState({ k1: 13.5,DTİİ1:false,  a1: 1,Röle1Egri:'Very Inverse' }, () => {
       //  console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData1(0);
         this.hesapKitap(); // Correctly calling the method using this keyword
       });
 
-      
-      
     }
-    else if (selectedOption && selectedOption.value === 'EI') {
-      this.setState({ k1: 80,DTİİ1:false, a1: 2,selectedOption:'Extremely Inverse' }, () => {
+    else if (Röle1Egri && Röle1Egri.value === 'EI') {
+      this.setState({ k1: 80,DTİİ1:false, a1: 2,Röle1Egri:'Extremely Inverse' }, () => {
    //     console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData1(0); 
         this.hesapKitap();// Correctly calling the method using this keyword
       });
-      
 
-    
-      
     }
-    else if (selectedOption && selectedOption.value === 'LTSI') {
-      this.setState({ k1: 120, a1: 1 ,selectedOption:'Long Time Standart Inverse'}, () => {
+    else if (Röle1Egri && Röle1Egri.value === 'LTSI') {
+      this.setState({ k1: 120, a1: 1 ,Röle1Egri:'Long Time Inverse'}, () => {
       //  console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData1(0);
         this.hesapKitap(); // Correctly calling the method using this keyword
       });
     }
-    else if (selectedOption && selectedOption.value === 'DFT') {
-      this.setState({ DTİİ1:true, selectedOption:'Definite Time'}, () => {
+    else if (Röle1Egri && Röle1Egri.value === 'DFT') {
+      this.setState({ DTİİ1:true, Röle1Egri:'Definite Time'}, () => {
 //  console.log("güncellendi definete time  " + this.state.DTİİ1); // Log the updated state value
         this.calculateData1(0);
         this.hesapKitap();// this.renderHtmlOpen(); // Correctly calling the method using this keyword
@@ -1417,19 +1502,65 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
     
     
   };
-  DropDown2 = (selectedOption) => {
+  handleChangeii = (Röle1Egri_ii) => {
+    
+    
+  //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
+  if (Röle1Egri_ii && Röle1Egri_ii.value === 'NI') {
+    this.setState({ iik1: 0.14,DTİİ1:false,  iia1: 0.02,Röle1Egri_ii:'Nominal Inverse' }, () => {
+ //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
+      this.calculateData1(0);
+      this.hesapKitap();
+     // Correctly calling the method using this keyword
+    });
+    
+  }
+  else if (Röle1Egri_ii && Röle1Egri_ii.value === 'VI') {
+    this.setState({ iik1: 13.5,DTİİ1:false,  iia1: 1,Röle1Egri_ii:'Very Inverse' }, () => {
+    //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+      this.calculateData1(0);
+      this.hesapKitap(); // Correctly calling the method using this keyword
+    });
+
+  }
+  else if (Röle1Egri_ii && Röle1Egri_ii.value === 'EI') {
+    this.setState({ iik1: 80,DTİİ1:false, iia1: 2,Röle1Egri_ii:'Extremely Inverse' }, () => {
+ //     console.log("güncellendi k " + this.state.k); // Log the updated state value
+      this.calculateData1(0); 
+      this.hesapKitap();// Correctly calling the method using this keyword
+    });
+  }
+  else if (Röle1Egri_ii && Röle1Egri_ii.value === 'LTSI') {
+    this.setState({ iik1: 120, iia1: 1 ,Röle1Egri_ii:'Long Time Inverse'}, () => {
+    //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+      this.calculateData1(0);
+      this.hesapKitap(); // Correctly calling the method using this keyword
+    });
+  }
+  else if (Röle1Egri_ii && Röle1Egri_ii.value === 'DFT') {
+    this.setState({ DTİİ1:true, Röle1Egri_ii:'Definite Time'}, () => {
+//  console.log("güncellendi definete time  " + this.state.DTİİ1); // Log the updated state value
+      this.calculateData1(0);
+      this.hesapKitap();// this.renderHtmlOpen(); // Correctly calling the method using this keyword
+    });
+  }
+  
+  
+  
+};
+DropDown2 = (Röle2Egri) => {
 
     //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
-    if (selectedOption && selectedOption.value === 'NI') {
-      this.setState({ k2: 0.14, DTİİ2:false, a2: 0.02,selectedOption:'Nominal Inverse' }, () => {
+    if (Röle2Egri && Röle2Egri.value === 'NI') {
+      this.setState({ k2: 0.14, DTİİ2:false, a2: 0.02,Röle2Egri:'Nominal Inverse' }, () => {
    //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
         this.calculateData2(1);
         this.hesapKitap(); // Correctly calling the method using this keyword
       });
       
     }
-    else if (selectedOption && selectedOption.value === 'VI') {
-      this.setState({ k2: 13.5,DTİİ2:false,  a2: 1,selectedOption:'Very Inverse' }, () => {
+    else if (Röle2Egri && Röle2Egri.value === 'VI') {
+      this.setState({ k2: 13.5,DTİİ2:false,  a2: 1,Röle2Egri:'Very Inverse' }, () => {
       //  console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData2(1);
         this.hesapKitap(); // Correctly calling the method using this keyword
@@ -1438,8 +1569,8 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
       
       
     }
-    else if (selectedOption && selectedOption.value === 'EI') {
-      this.setState({ k2: 80,DTİİ2:false,  a2: 2,selectedOption:'Extrelemy Inverse' }, () => {
+    else if (Röle2Egri && Röle2Egri.value === 'EI') {
+      this.setState({ k2: 80,DTİİ2:false,  a2: 2,Röle2Egri:'Extrelemy Inverse' }, () => {
    //     console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData2(1);
         this.hesapKitap(); // Correctly calling the method using this keyword
@@ -1448,8 +1579,8 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
 
  
     }
-    else if (selectedOption && selectedOption.value === 'LTSI') {
-      this.setState({ k2: 120,DTİİ2:false,  a2: 1,selectedOption:'Long Time Standart Inverse' }, () => {
+    else if (Röle2Egri && Röle2Egri.value === 'LTSI') {
+      this.setState({ k2: 120,DTİİ2:false,  a2: 1,Röle2Egri:'Long Time Inverse' }, () => {
       //  console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData2(1); 
         this.hesapKitap();// Correctly calling the method using this keyword
@@ -1457,8 +1588,8 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
       
 
     }
-     else if (selectedOption && selectedOption.value === 'DFT') {
-      this.setState({ DTİİ2:true,selectedOption:'Definite Time'}, () => {
+     else if (Röle2Egri && Röle2Egri.value === 'DFT') {
+      this.setState({ DTİİ2:true,Röle2Egri:'Definite Time'}, () => {
 //  console.log("güncellendi definete time  " + this.state.DTİİ1); // Log the updated state value
         this.calculateData2(1);
         this.hesapKitap();// this.renderHtmlOpen(); // Correctly calling the method using this keyword
@@ -1466,19 +1597,67 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
     }
     
   };
-  DropDown3 = (selectedOption) => {
+DropDown2ii = (Röle2Egri_ii) => {
+
+    //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
+    if (Röle2Egri_ii && Röle2Egri_ii.value === 'NI') {
+      this.setState({ iik2: 0.14, DTİİ2:false, iia2: 0.02,Röle2Egri_ii:'Nominal Inverse' }, () => {
+   //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
+        this.calculateData2(1);
+        this.hesapKitap(); // Correctly calling the method using this keyword
+      });
+      
+    }
+    else if (Röle2Egri_ii && Röle2Egri_ii.value === 'VI') {
+      this.setState({ iik2: 13.5,DTİİ2:false,iia2: 1,Röle2Egri_ii:'Very Inverse' }, () => {
+      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+        this.calculateData2(1);
+        this.hesapKitap(); // Correctly calling the method using this keyword
+      });
+
+      
+      
+    }
+    else if (Röle2Egri_ii && Röle2Egri_ii.value === 'EI') {
+      this.setState({ iik2: 80,DTİİ2:false,  iia2: 2,Röle2Egri_ii:'Extrelemy Inverse' }, () => {
+   //     console.log("güncellendi k " + this.state.k); // Log the updated state value
+        this.calculateData2(1);
+        this.hesapKitap(); // Correctly calling the method using this keyword
+      });
+      
+
+    }
+    else if (Röle2Egri_ii && Röle2Egri_ii.value === 'LTSI') {
+      this.setState({ iik2: 120,DTİİ2:false,  iia2: 1,Röle2Egri_ii:'Long Time Inverse' }, () => {
+      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+        this.calculateData2(1); 
+        this.hesapKitap();// Correctly calling the method using this keyword
+      });
+      
+
+    }
+     else if (Röle2Egri_ii && Röle2Egri_ii.value === 'DFT') {
+      this.setState({ DTİİ2:true,Röle2Egri_ii:'Definite Time'}, () => {
+//  console.log("güncellendi definete time  " + this.state.DTİİ1); // Log the updated state value
+        this.calculateData2(1);
+        this.hesapKitap();// this.renderHtmlOpen(); // Correctly calling the method using this keyword
+      });
+    }
+    
+  };
+DropDown3 = (Röle3Egri) => {
 
      //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
-     if (selectedOption && selectedOption.value === 'NI') {
-      this.setState({ k3: 0.14, DTİİ3:false, a3: 0.02,selectedOption:'Nominal Inverse' }, () => {
+     if (Röle3Egri && Röle3Egri.value === 'NI') {
+      this.setState({ k3: 0.14, DTİİ3:false, a3: 0.02,Röle3Egri:'Nominal Inverse' }, () => {
    //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
         this.calculateData3(2);
         this.hesapKitap(); // Correctly calling the method using this keyword
       });
       
     }
-    else if (selectedOption && selectedOption.value === 'VI') {
-      this.setState({ k3: 13.5,DTİİ3:false,  a3: 1,selectedOption:'Very Inverse' }, () => {
+    else if (Röle3Egri && Röle3Egri.value === 'VI') {
+      this.setState({ k3: 13.5,DTİİ3:false,  a3: 1,Röle3Egri:'Very Inverse' }, () => {
       //  console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData3(2);
         this.hesapKitap(); // Correctly calling the method using this keyword
@@ -1487,8 +1666,8 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
       
       
     }
-    else if (selectedOption && selectedOption.value === 'EI') {
-      this.setState({ k3: 80,DTİİ3:false,  a3: 2,selectedOption:'Extrelemy Inverse' }, () => {
+    else if (Röle3Egri && Röle3Egri.value === 'EI') {
+      this.setState({ k3: 80,DTİİ3:false,  a3: 2,Röle3Egri:'Extrelemy Inverse' }, () => {
    //     console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData3(2);
         this.hesapKitap(); // Correctly calling the method using this keyword
@@ -1497,17 +1676,16 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
 
  
     }
-    else if (selectedOption && selectedOption.value === 'LTSI') {
-      this.setState({ k3: 120,DTİİ3:false,  a3: 1,selectedOption:'Long Time Standart Inverse' }, () => {
+    else if (Röle3Egri && Röle3Egri.value === 'LTSI') {
+      this.setState({ k3: 120,DTİİ3:false,  a3: 1,Röle3Egri:'Long Time Inverse' }, () => {
       //  console.log("güncellendi k " + this.state.k); // Log the updated state value
         this.calculateData3(2);
         this.hesapKitap(); // Correctly calling the method using this keyword
       });
-      
 
     }
-     else if (selectedOption && selectedOption.value === 'DFT') {
-      this.setState({ DTİİ3:true,selectedOption:'Definite Time'}, () => {
+     else if (Röle3Egri && Röle3Egri.value === 'DFT') {
+      this.setState({ DTİİ3:true,Röle3Egri:'Definite Time'}, () => {
 //  console.log("güncellendi definete time  " + this.state.DTİİ1); // Log the updated state value
         this.calculateData3(2);
         this.hesapKitap();// this.renderHtmlOpen(); // Correctly calling the method using this keyword
@@ -1516,102 +1694,252 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
     
     
   };
-  DropDown4 = (selectedOption) => {
+DropDown3ii = (Röle3Egri_ii) => {
 
     //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
-    if (selectedOption && selectedOption.value === 'NI') {
-      this.setState({ DTİİ4:false,k4: 0.14, a4: 0.02 }, () => {
-   //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
-   this.calculateData4(3);
-   this.hesapKitap(); // Correctly calling the method using this keyword
-      });
-      
-    }
-    else if (selectedOption && selectedOption.value === 'VI') {
-      this.setState({DTİİ4:false, k4: 13.5, a4: 1 }, () => {
-      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
-      this.calculateData4(3); 
-      this.hesapKitap();// Correctly calling the method using this keyword
-      });
+    if (Röle3Egri_ii && Röle3Egri_ii.value === 'NI') {
+     this.setState({ k3: 0.14, DTİİ3:false, a3: 0.02,Röle3Egri_ii:'Nominal Inverse' }, () => {
+  //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
+       this.calculateData3(2);
+       this.hesapKitap(); // Correctly calling the method using this keyword
+     });
+     
+   }
+   else if (Röle3Egri_ii && Röle3Egri_ii.value === 'VI') {
+     this.setState({ k3: 13.5,DTİİ3:false,  a3: 1,Röle3Egri_ii:'Very Inverse' }, () => {
+     //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+       this.calculateData3(2);
+       this.hesapKitap(); // Correctly calling the method using this keyword
+     });
 
-      
-      
-    }
-    else if (selectedOption && selectedOption.value === 'EI') {
-      this.setState({ DTİİ4:false,k4: 80, a4: 2 }, () => {
-   //     console.log("güncellendi k " + this.state.k); // Log the updated state value
-   this.calculateData4(3); 
-   this.hesapKitap();// Correctly calling the method using this keyword
-      });
-      
+     
+     
+   }
+   else if (Röle3Egri_ii && Röle3Egri_ii.value === 'EI') {
+     this.setState({ k3: 80,DTİİ3:false,  a3: 2,Röle3Egri_ii:'Extrelemy Inverse' }, () => {
+  //     console.log("güncellendi k " + this.state.k); // Log the updated state value
+       this.calculateData3(2);
+       this.hesapKitap(); // Correctly calling the method using this keyword
+     });
+     
 
-      
-    }
-    else if (selectedOption && selectedOption.value === 'LTSI') {
-      this.setState({ DTİİ4:false,k4: 120, a4: 1 }, () => {
-      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
-        this.calculateData4(3);
-        this.hesapKitap(); // Correctly calling the method using this keyword
-      });  
 
-    }
-    else if (selectedOption && selectedOption.value === 'DFT') {
-      this.setState({ DTİİ4:true,selectedOption:'Definite Time'}, () => {
+   }
+   else if (Röle3Egri_ii && Röle3Egri_ii.value === 'LTSI') {
+     this.setState({ k3: 120,DTİİ3:false,  a3: 1,Röle3Egri_ii:'Long Time Inverse' }, () => {
+     //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+       this.calculateData3(2);
+       this.hesapKitap(); // Correctly calling the method using this keyword
+     });
+     
+
+   }
+    else if (Röle3Egri_ii && Röle3Egri_ii.value === 'DFT') {
+     this.setState({ DTİİ3:true,Röle3Egri_ii:'Definite Time'}, () => {
 //  console.log("güncellendi definete time  " + this.state.DTİİ1); // Log the updated state value
-        this.calculateData4(3);
-        this.hesapKitap();// this.renderHtmlOpen(); // Correctly calling the method using this keyword
-      });
-    }
-    
-    
-  };
-  DropDown5 = (selectedOption) => {
+       this.calculateData3(2);
+       this.hesapKitap();// this.renderHtmlOpen(); // Correctly calling the method using this keyword
+     });
+   }
+   
+   
+ };
+ DropDown4 = (Röle4Egri) => {
 
-    //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
-    if (selectedOption && selectedOption.value === 'NI') {
-      this.setState({ DTİİ5:false, k5: 0.14, a5: 0.02 }, () => {
-   //     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
-   this.calculateData5(4);
-   this.hesapKitap(); // Correctly calling the method using this keyword
-      });
-      
-    }
-    else if (selectedOption && selectedOption.value === 'VI') {
-      this.setState({  DTİİ5:false,k5: 13.5, a5: 1 }, () => {
-      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
-      this.calculateData5(4);
-      this.hesapKitap(); // Correctly calling the method using this keyword
-      });
+  //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
+  if (Röle4Egri && Röle4Egri.value === 'NI') {
+   this.setState({ k4: 0.14, DTİİ4:false, a4: 0.02,Röle4Egri:'Nominal Inverse' }, () => {
+//     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
+     this.calculateData4(3);
+     this.hesapKitap(); // Correctly calling the method using this keyword
+   });
+   
+ }
+ else if (Röle4Egri && Röle4Egri.value === 'VI') {
+   this.setState({ k4: 13.5,DTİİ4:false,  a4: 1,Röle4Egri:'Very Inverse' }, () => {
+   //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+     this.calculateData4(3);
+     this.hesapKitap(); // Correctly calling the method using this keyword
+   });
 
-      
-      
-    }
-    else if (selectedOption && selectedOption.value === 'EI') {
-      this.setState({  DTİİ5:false,k5: 80, a5: 2 }, () => {
-   //     console.log("güncellendi k " + this.state.k); // Log the updated state value
-   this.calculateData5(4);
-   this.hesapKitap(); // Correctly calling the method using this keyword
-      });
-      
-    }
-    else if (selectedOption && selectedOption.value === 'LTSI') {
-      this.setState({ DTİİ5:false,k5: 120, a5: 1 }, () => {
-      //  console.log("güncellendi k " + this.state.k); // Log the updated state value
-        this.calculateData5(4);
-        this.hesapKitap(); // Correctly calling the method using this keyword
-      });
+   
+   
+ }
+ else if (Röle4Egri && Röle4Egri.value === 'EI') {
+   this.setState({ k4: 80,DTİİ4:false,  a4: 2,Röle4Egri:'Extrelemy Inverse' }, () => {
+//     console.log("güncellendi k " + this.state.k); // Log the updated state value
+     this.calculateData4(3);
+     this.hesapKitap(); // Correctly calling the method using this keyword
+   });
+   
 
-    }
-    else if (selectedOption && selectedOption.value === 'DFT') {
-      this.setState({ DTİİ5:true,selectedOption:'Definite Time'}, () => {
+
+ }
+ else if (Röle4Egri && Röle4Egri.value === 'LTSI') {
+   this.setState({ k4: 120,DTİİ4:false,  a4: 1,Röle4Egri:'Long Time Inverse' }, () => {
+   //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+     this.calculateData4(3);
+     this.hesapKitap(); // Correctly calling the method using this keyword
+   });
+
+ }
+  else if (Röle4Egri && Röle4Egri.value === 'DFT') {
+   this.setState({ DTİİ4:true,Röle4Egri:'Definite Time'}, () => {
 //  console.log("güncellendi definete time  " + this.state.DTİİ1); // Log the updated state value
-        this.calculateData5(4);
-        this.hesapKitap();// this.renderHtmlOpen(); // Correctly calling the method using this keyword
-      });
-    }
-    
-    
-  };
+     this.calculateData4(3);
+     this.hesapKitap();// this.renderHtmlOpen(); // Correctly calling the method using this keyword
+   });
+ }
+ 
+ 
+};
+DropDown4ii = (Röle4Egri_ii) => {
+
+ //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
+ if (Röle4Egri_ii && Röle4Egri_ii.value === 'NI') {
+  this.setState({ iik4: 0.14, DTİİ4:false, iia4: 0.02,Röle4Egri_ii:'Nominal Inverse' }, () => {
+//     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
+    this.calculateData4(3);
+    this.hesapKitap(); // Correctly calling the method using this keyword
+  });
+  
+}
+else if (Röle4Egri_ii && Röle4Egri_ii.value === 'VI') {
+  this.setState({ iik4: 13.5,DTİİ4:false,  iia4: 1,Röle4Egri_ii:'Very Inverse' }, () => {
+  //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+    this.calculateData4(3);
+    this.hesapKitap(); // Correctly calling the method using this keyword
+  });
+
+  
+  
+}
+else if (Röle4Egri_ii && Röle4Egri_ii.value === 'EI') {
+  this.setState({ iik4: 80,DTİİ4:false,  iia4: 2,Röle4Egri_ii:'Extrelemy Inverse' }, () => {
+//     console.log("güncellendi k " + this.state.k); // Log the updated state value
+    this.calculateData4(3);
+    this.hesapKitap(); // Correctly calling the method using this keyword
+  });
+  
+
+
+}
+else if (Röle4Egri_ii && Röle4Egri_ii.value === 'LTSI') {
+  this.setState({ iik4: 120,DTİİ4:false,  iia4: 1,Röle4Egri_ii:'Long Time Inverse' }, () => {
+  //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+    this.calculateData4(3);
+    this.hesapKitap(); // Correctly calling the method using this keyword
+  });
+  
+
+}
+ else if (Röle4Egri_ii && Röle4Egri_ii.value === 'DFT') {
+  this.setState({ DTİİ4:true,Röle4Egri_ii:'Definite Time'}, () => {
+//  console.log("güncellendi definete time  " + this.state.DTİİ1); // Log the updated state value
+    this.calculateData4(3);
+    this.hesapKitap();// this.renderHtmlOpen(); // Correctly calling the method using this keyword
+  });
+}
+
+
+};
+DropDown5 = (Röle5Egri) => {
+
+  //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
+  if (Röle5Egri && Röle5Egri.value === 'NI') {
+   this.setState({ k5: 0.14, DTİİ5:false, a5: 0.02,Röle5Egri:'Nominal Inverse' }, () => {
+//     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
+     this.calculateData5(4);
+     this.hesapKitap(); // Correctly calling the method using this keyword
+   });
+   
+ }
+ else if (Röle5Egri && Röle5Egri.value === 'VI') {
+   this.setState({ k5: 13.5,DTİİ5:false,  a5: 1,Röle5Egri:'Very Inverse' }, () => {
+   //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+     this.calculateData5(4);
+     this.hesapKitap(); // Correctly calling the method using this keyword
+   });
+
+   
+   
+ }
+ else if (Röle5Egri && Röle5Egri.value === 'EI') {
+   this.setState({ k5: 80,DTİİ5:false,  a5: 2,Röle5Egri:'Extrelemy Inverse' }, () => {
+//     console.log("güncellendi k " + this.state.k); // Log the updated state value
+     this.calculateData5(4);
+     this.hesapKitap(); // Correctly calling the method using this keyword
+   });
+   
+
+
+ }
+ else if (Röle5Egri && Röle5Egri.value === 'LTSI') {
+   this.setState({ k5: 120,DTİİ5:false,  a5: 1,Röle5Egri:'Long Time Inverse' }, () => {
+   //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+     this.calculateData5(4);
+     this.hesapKitap(); // Correctly calling the method using this keyword
+   });
+
+ }
+  else if (Röle5Egri && Röle5Egri.value === 'DFT') {
+   this.setState({ DTİİ5:true,Röle5Egri:'Definite Time'}, () => {
+//  console.log("güncellendi definete time  " + this.state.DTİİ1); // Log the updated state value
+     this.calculateData5(4);
+     this.hesapKitap();// this.renderHtmlOpen(); // Correctly calling the method using this keyword
+   });
+ }
+ 
+ 
+};
+DropDown5ii = (Röle5Egri_ii) => {
+
+ //console.log("güncellendi ÖNCE  " + this.state.k); // Log the updated state value
+ if (Röle5Egri_ii && Röle5Egri_ii.value === 'NI') {
+  this.setState({ iik5: 0.14, DTİİ5:false, iia5: 0.02,Röle5Egri_ii:'Nominal Inverse' }, () => {
+//     console.log("güncellendi ESNASI  " + this.state.k); // Log the updated state value
+    this.calculateData5(4);
+    this.hesapKitap(); // Correctly calling the method using this keyword
+  });
+  
+}
+else if (Röle5Egri_ii && Röle5Egri_ii.value === 'VI') {
+  this.setState({ iik5: 13.5,DTİİ5:false,  iia5: 1,Röle5Egri_ii:'Very Inverse' }, () => {
+  //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+    this.calculateData5(4);
+    this.hesapKitap(); // Correctly calling the method using this keyword
+  });
+
+}
+else if (Röle5Egri_ii && Röle5Egri_ii.value === 'EI') {
+  this.setState({ iik5: 80,DTİİ5:false,  iia5: 2,Röle5Egri_ii:'Extrelemy Inverse' }, () => {
+//     console.log("güncellendi k " + this.state.k); // Log the updated state value
+    this.calculateData5(4);
+    this.hesapKitap(); // Correctly calling the method using this keyword
+  });
+
+}
+else if (Röle5Egri_ii && Röle5Egri_ii.value === 'LTSI') {
+  this.setState({ iik5: 120,DTİİ5:false,  iia5: 1,Röle5Egri_ii:'Long Time Inverse' }, () => {
+  //  console.log("güncellendi k " + this.state.k); // Log the updated state value
+    this.calculateData5(4);
+    this.hesapKitap(); // Correctly calling the method using this keyword
+  });
+  
+}
+ else if (Röle5Egri_ii && Röle5Egri_ii.value === 'DFT') {
+  this.setState({ DTİİ5:true,Röle5Egri_ii:'Definite Time'}, () => {
+//  console.log("güncellendi definete time  " + this.state.DTİİ1); // Log the updated state value
+    this.calculateData5(4);
+    this.hesapKitap();// this.renderHtmlOpen(); // Correctly calling the method using this keyword
+  });
+}
+
+
+};
+
+
+
    handleInputChange = (index, value) => {
 
     const { StateDeneme } = this.state;
@@ -1637,7 +1965,17 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
       iicm2,iitms2,iict2,DTİİ2,
       iicm3,iitms3,iict3,DTİİ3,
       iicm4,iitms4,iict4,DTİİ4,
-      iicm5,iitms5,iict5,DTİİ5
+      iicm5,iitms5,iict5,DTİİ5,
+      iik1,
+      iia1,
+      iik2,
+      iia2,
+      iik3,
+      iia3,
+      iik4,
+      iia4,
+      iik5,
+      iia5
     
     
     } = this.state;
@@ -1649,95 +1987,99 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
         
         case 1:
           if(isVisibleDropİcon1 && isVisibleDropİcon2===false){
-         //   1.röle için sadece 1.kademe aktif demektir
-         y1 = tms1*(k1 / (Math.pow(this.state.StateDeneme[0] / (ct1*cmt1), a1) - 1));
-         if(y1<0 )
-         { return ["Röle Pic-Up Erişmedi,Röle Açmaz"]}
-         return [y1.toFixed(3) + " Röle  Saniye Açar"]
-          }
-         else  if(isVisibleDropİcon1 && isVisibleDropİcon2){
-            //1.röle için I> ve I>> aktiftir.
-            if(this.state.StateDeneme[0]!='' && this.state.StateDeneme[0]!=0 && this.state.StateDeneme[0]>(cmt1*ct1) &&this.state.StateDeneme[0]<(iicm1*iict1) ){
-              y1 = tms1*(k1 / (Math.pow(this.state.StateDeneme[0] / (ct1*cmt1), a1) - 1));
-              if(y1<0 )
-              { return ["Röle Pic-Up Erişmedi,Röle Açmaz"]}
-              return [ "I> "+y1.toFixed(3) + " Röle  Saniye Açar"]
-            }
-            else if(this.state.StateDeneme[0]!='' && this.state.StateDeneme[0]!=0 && this.state.StateDeneme[0]>=(cmt1*ct1)) {
-                // 1. röle için 2.kademe bölgesinde bir değer hesap edilip kullanıcıya bildirilecek
-               if(DTİİ1){
-                return [ "I>> " +iitms1 + " Röle  Saniye Açar"]
+            //  sadece 1.kademe aktif demektir
+            y1 = tms1*(k1 / (Math.pow(this.state.StateDeneme[0] / (ct1*cmt1), a1) - 1));
+            
+         
+            if(y1<0 )
+            { y1="Röle Açmaz"}
+        
+            return       [isNumber(y1) ? y1.toFixed(3) + " Röle  Saniye Açar":y1  ]
+             }
+             else if(isVisibleDropİcon1 && isVisibleDropİcon2){
+               //I> ve I>> aktiftir.
+               if(this.state.StateDeneme[0]!='' && this.state.StateDeneme[0]!=0 && this.state.StateDeneme[0]>(cmt1*ct1) &&( this.state.StateDeneme[0]<(iicm1*iict1)|| (iicm1=='' && iict1=='') )){
+                 y1 = tms1*(k1 / (Math.pow(this.state.StateDeneme[0] / (ct1*cmt1), a1) - 1));
+                 if(y1<0 )
+                 { y1="Röle Açmaz"}
+                 
                }
-               else{
-                y1 = iitms1*(k1 / (Math.pow(this.state.StateDeneme[0] / (iict1*iicm1), a1) - 1));
-              
-              return ["I>> "+y1.toFixed(3) + " Röle  Saniye Açar"]
+               else if(this.state.StateDeneme[0]!='' && this.state.StateDeneme[0]!=0 && this.state.StateDeneme[0]>=(cmt1*ct1) && this.state.StateDeneme[0]>=(iicm1*iict1)) {
+                   // 1. röle için 2.kademe bölgesinde bir değer hesap edilip kullanıcıya bildirilecek
+                  if(DTİİ1){
+                  y1=iitms1
+                  }
+                  else{
+                   y1 = iitms1*(iik1 / (Math.pow(this.state.StateDeneme[0] / (iict1*iicm1), iia1) - 1));
+                   if(y1<0 )
+                   { y1= ["Röle Açmaz"]}
+                
+                  }
                }
-            }
-          }
+           
+               return       [isNumber(y1) ? y1.toFixed(3) + " Röle  Saniye Açar":y1  ]
+             }
+  
         case 2:
 
-         if(isVisibleDropİcon1 && isVisibleDropİcon2===false){
-          //    1.kademe aktif demektir
+        if(isVisibleDropİcon1 && isVisibleDropİcon2===false){
+          //  sadece 1.kademe aktif demektir
           y1 = tms1*(k1 / (Math.pow(this.state.StateDeneme[1] / (ct1*cmt1), a1) - 1));
-          if(y1<0 )  { y1= "Röle Açmaz"}
-          y2=tms2*(k2 / (Math.pow(this.state.StateDeneme[1] / (ct2*cmt2), a2) - 1));
-          if(y2<0 )  { y2= "Röle Açmaz"}
+          y2 = tms2*(k2 / (Math.pow(this.state.StateDeneme[1] / (ct2*cmt2), a2) - 1));
+       
+          if(y1<0 )
+          { y1="Röle Açmaz"}
+      
+          if(y2<0 )
+          { y2="Röle Açmaz"}
+ 
           return       [isNumber(y1) ? y1.toFixed(3) + " Röle  Saniye Açar":y1 ,
           isNumber(y2) ? y2.toFixed(3) + " Röle Saniye Açar":y2 ]
            }
-        else   if(isVisibleDropİcon1 && isVisibleDropİcon2){
-             // I> ve I>> aktiftir.
-     
-             if(this.state.StateDeneme[1]!='' && this.state.StateDeneme[1]!=0 && this.state.StateDeneme[1]>(cmt1*ct1) &&this.state.StateDeneme[1]<(iicm1*iict1) ){
+           else if(isVisibleDropİcon1 && isVisibleDropİcon2){
+             //I> ve I>> aktiftir.
+      if(this.state.StateDeneme[1]!='' && this.state.StateDeneme[1]!=0 && this.state.StateDeneme[1]>(cmt1*ct1) &&( this.state.StateDeneme[1]<(iicm1*iict1)|| (iicm1=='' && iict1=='') )){
                y1 = tms1*(k1 / (Math.pow(this.state.StateDeneme[1] / (ct1*cmt1), a1) - 1));
-        
+               if(y1<0 )
+               { y1="Röle Açmaz"}
+               
              }
-             else if (this.state.StateDeneme[1]!='' && this.state.StateDeneme[1]!=0  &&this.state.StateDeneme[1]>(iicm1*iict1)){
+       else if(this.state.StateDeneme[1]!='' && this.state.StateDeneme[1]!=0 && this.state.StateDeneme[1]>=(cmt1*ct1) && this.state.StateDeneme[1]>=(iicm1*iict1)) {
+                 // 1. röle için 2.kademe bölgesinde bir değer hesap edilip kullanıcıya bildirilecek
                 if(DTİİ1){
-                    y1=iitms1
+                y1=iitms1
                 }
                 else{
-                  y1 = iitms1*(k1 / (Math.pow(this.state.StateDeneme[1] / (iict1*iicm1), a1) - 1));
+                 y1 = iitms1*(iik1 / (Math.pow(this.state.StateDeneme[1] / (iict1*iicm1), iia1) - 1));
+                 if(y1<0 )
+                 { y1= ["Röle Açmaz"]}
+              
                 }
              }
-             if(this.state.StateDeneme[1]!='' && this.state.StateDeneme[1]!=0 && this.state.StateDeneme[1]>(cmt2*ct2) &&this.state.StateDeneme[1]<(iicm2*iict2)){
-              // 2.röle mutlaka 1.bölgesinde çalışıyor demektir.
-            
-                y2 = tms2*(k2 / (Math.pow(this.state.StateDeneme[1] / (ct2*cmt2), a2) - 1));
-                if(y2<0 )
-                { y2= ["Röle Açmaz"]}
-               
-            
-            
-             }
-             else if ( this.state.StateDeneme[1]!='' && this.state.StateDeneme[1]!=0 && this.state.StateDeneme[1]>=(iicm2*iict2)){
-              // 2. röle mutlaka 2.kademede çalışıyor demektir.
-
-              if(DTİİ1 &&this.state.StateDeneme[1]>=(iicm1*iict1) ){
-                y1=iitms1
-              }
-              else{
-                y1 = iitms1*(k1 / (Math.pow(this.state.StateDeneme[1] / (iict1*iicm1), a1) - 1));
-                             
-               if(y1<0 )
-               { y1= ["Röle Açmaz"]}
-              }
-              
-              if(DTİİ2){
+       if(this.state.StateDeneme[1]!='' && this.state.StateDeneme[1]!=0 && this.state.StateDeneme[1]>(cmt2*ct2)&&( this.state.StateDeneme[1]<(iicm2*iict2)|| (iicm2=='' && iict2=='') ))
+            {
+              //2.röle kesinlikle I> da çalışıyordur.
+              y2 = tms2*(k2 / (Math.pow(this.state.StateDeneme[1] / (ct2*cmt2), a2) - 1));
+              if(y2<0 )
+              { y2= ["Röle Açmaz"]}
+            }
+       else if (this.state.StateDeneme[1]!='' && this.state.StateDeneme[1]!=0 && this.state.StateDeneme[1]>=(cmt2*ct2)){
+              //2.röle kesinlikle I>>  ÇALIŞIYORDUR
+       if(DTİİ2 &&this.state.StateDeneme[1]>=(iicm2*iict2) ){
                 y2=iitms2
               }
               else{
-                y2 = iitms2*(k2 / (Math.pow(this.state.StateDeneme[1] / (iict2*iicm2), a2) - 1));
-                if(y2<0 )
-                { y2= ["Röle Açmaz"]}
-               
+                y2 = iitms2*(iik2 / (Math.pow(this.state.StateDeneme[1] / (iict2*iicm2), iia2) - 1));
+                             
+               if(y2<0 )
+               { y2= ["Röle Açmaz"]}
               }
              }
-             return       [isNumber(y1) ? y1.toFixed(3) + " Röle  Saniye Açar":y1 ,
-        isNumber(y2) ? y2.toFixed(3) + " Röle Saniye Açar":y2 ]
-            
+           
            }
+
+           return       [isNumber(y1) ? y1.toFixed(3) + " Röle  Saniye Açar":y1 ,
+           isNumber(y2) ? y2.toFixed(3) + " Röle Saniye Açar":y2  ]
        
         case 3:
               if(isVisibleDropİcon1 && isVisibleDropİcon2===false){
@@ -1772,7 +2114,7 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
                       y1=iitms1
                       }
                       else{
-                       y1 = iitms1*(k1 / (Math.pow(this.state.StateDeneme[2] / (iict1*iicm1), a1) - 1));
+                       y1 = iitms1*(iik1 / (Math.pow(this.state.StateDeneme[2] / (iict1*iicm1), iia1) - 1));
                        if(y1<0 )
                        { y1= ["Röle Açmaz"]}
                     
@@ -1791,7 +2133,7 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
                       y2=iitms2
                     }
                     else{
-                      y2 = iitms2*(k2 / (Math.pow(this.state.StateDeneme[2] / (iict2*iicm2), a2) - 1));
+                      y2 = iitms2*(iik2 / (Math.pow(this.state.StateDeneme[2] / (iict2*iicm2), iia2) - 1));
                                    
                      if(y2<0 )
                      { y2= ["Röle Açmaz"]}
@@ -1811,7 +2153,7 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
                         y3=iitms2
                       }
                       else{
-                        y3 = iitms3*(k3 / (Math.pow(this.state.StateDeneme[2] / (iict3*iicm3), a3) - 1));
+                        y3 = iitms3*(iik3 / (Math.pow(this.state.StateDeneme[2] / (iict3*iicm3), iia3) - 1));
                                      
                        if(y3<0 )
                        { y3= ["Röle Açmaz"]}
@@ -1863,7 +2205,7 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
                         y1=iitms1
                           }
                           else{
-                           y1 = iitms1*(k1 / (Math.pow(this.state.StateDeneme[3] / (iict1*iicm1), a1) - 1));
+                           y1 = iitms1*(iik1 / (Math.pow(this.state.StateDeneme[3] / (iict1*iicm1), iia1) - 1));
                            if(y1<0 )
                            { y1= ["Röle Açmaz"]}
                         
@@ -1884,7 +2226,7 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
                           y2=iitms2
                         }
                         else{
-                          y2 = iitms2*(k2 / (Math.pow(this.state.StateDeneme[3] / (iict2*iicm2), a2) - 1));
+                          y2 = iitms2*(iik2 / (Math.pow(this.state.StateDeneme[3] / (iict2*iicm2), iia2) - 1));
                                        
                        
                         }
@@ -1905,7 +2247,7 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
                             y3=iitms3
                           }
                           else{
-                            y3 = iitms3*(k3 / (Math.pow(this.state.StateDeneme[3] / (iict3*iicm3), a3) - 1));
+                            y3 = iitms3*(iik3 / (Math.pow(this.state.StateDeneme[3] / (iict3*iicm3),iia3) - 1));
                                          
                            if(y3<0 )
                            { y3= ["Röle Açmaz"]}
@@ -1928,7 +2270,7 @@ else  if(KisaDevreAkimlari[index]< (ct2*cmt2)){
                           y4=iitms4
                         }
                         else{
-                          y4 = iitms4*(k4 / (Math.pow(this.state.StateDeneme[3] / (iict4*iicm4), a4) - 1));
+                          y4 = iitms4*(iik4 / (Math.pow(this.state.StateDeneme[3] / (iict4*iicm4), iia4) - 1));
                                        
                          if(y4<0 )
                          { y4= ["Röle Açmaz"]}
@@ -1986,7 +2328,7 @@ else if(this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.st
                y1=iitms1
                  }
                  else{
-                  y1 = iitms1*(k1 / (Math.pow(this.state.StateDeneme[4] / (iict1*iicm1), a1) - 1));
+                  y1 = iitms1*(iik1 / (Math.pow(this.state.StateDeneme[4] / (iict1*iicm1), iia1) - 1));
                   if(y1<0 )
                   { y1= ["Röle Açmaz"]}
                
@@ -2007,7 +2349,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
                  y2=iitms2
                }
                else{
-                 y2 = iitms2*(k2 / (Math.pow(this.state.StateDeneme[4] / (iict2*iicm2), a2) - 1));
+                 y2 = iitms2*(iik2 / (Math.pow(this.state.StateDeneme[4] / (iict2*iicm2), iia2) - 1));
                               
               
                }
@@ -2028,7 +2370,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
                    y3=iitms3
                  }
                  else{
-                   y3 = iitms3*(k3 / (Math.pow(this.state.StateDeneme[4] / (iict3*iicm3), a3) - 1));
+                   y3 = iitms3*(iik3 / (Math.pow(this.state.StateDeneme[4] / (iict3*iicm3), iia3) - 1));
                                 
                   if(y3<0 )
                   { y3= ["Röle Açmaz"]}
@@ -2051,7 +2393,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
                  y4=iitms4
                }
                else{
-                 y4 = iitms4*(k4 / (Math.pow(this.state.StateDeneme[4] / (iict4*iicm4), a4) - 1));
+                 y4 = iitms4*(iik4 / (Math.pow(this.state.StateDeneme[4] / (iict4*iicm4), iia4) - 1));
                               
                 if(y4<0 )
                 { y4= ["Röle Açmaz"]}
@@ -2074,7 +2416,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
                y5=iitms5
              }
              else{
-               y5 = iitms5*(k5 / (Math.pow(this.state.StateDeneme[4] / (iict5*iicm5), a5) - 1));
+               y5 = iitms5*(iik5 / (Math.pow(this.state.StateDeneme[4] / (iict5*iicm5), iia5) - 1));
                             
               if(y5<0 )
               { y5= ["Röle Açmaz"]}
@@ -2098,9 +2440,13 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
     return [0,0,0,0,0]
   }
   renderHtmlOpen=()=>{
+
     return(
    
 <div className="kare"  >
+
+
+
         <div className="DropdownOpen" >  
         <h4>I&gt;&gt; Fonksiyonu Aktif </h4>          
          <FiChevronsUp   data-icon="Secondİcon" color="black" size={50}  onClick={this.Dropİcon}
@@ -2109,14 +2455,13 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
           </div>
         
         <form className="form-container1">
-          
         <div >  
-          <div>Röle 1</div>
+          <div className="relayheadertext">Röle 1 I&gt;&gt;</div>
            <Select
-          value={this.state.selectedOption}
-        onChange={this.handleChange}
-          options={options}
-          placeholder={this.state.selectedOption} 
+          value={this.state.Röle1Egri_ii}
+        onChange={this.handleChangeii}
+          options={optionsii}
+          placeholder={this.state.Röle1Egri_ii} 
         /> 
        
         </div>
@@ -2172,12 +2517,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
         <form className="form-container2">
 
         <div > 
-        <div>Röle 2</div> 
+        <div className="relayheadertext">Röle 2 I&gt;&gt; </div> 
          <Select
-          value={this.state.selectedOption}
-        onChange={this.DropDown2}
-          options={options}
-          placeholder={this.state.selectedOption}
+          value={this.state.Röle2Egri_ii}
+        onChange={this.DropDown2ii}
+          options={optionsii}
+          placeholder={this.state.Röle2Egri_ii}
           
          
         /> </div>
@@ -2231,12 +2576,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
         <form className="form-container3">
       
         <div > 
-        <div>Röle 3</div> 
+        <div className="relayheadertext">Röle 3 I&gt;&gt;</div> 
            <Select
-          value={this.state.selectedOption}
-          onChange={this.DropDown3}
-          options={options}
-          placeholder={this.state.selectedOption}
+          value={this.state.Röle3Egri_ii}
+          onChange={this.DropDown3ii}
+          options={optionsii}
+          placeholder={this.state.Röle3Egri_ii}
           
          
         /> </div>
@@ -2276,12 +2621,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
          
       
         <div >   
-        <div>Röle 4</div>
+        <div className="relayheadertext"> Röle 4 I&gt;&gt;</div>
           <Select
-          value={this.state.selectedOption}
-        onChange={this.DropDown4}
-          options={options}
-          placeholder={this.state.selectedOption}
+          value={this.state.Röle4Egri_ii}
+        onChange={this.DropDown4ii}
+          options={optionsii}
+          placeholder={this.state.Röle4Egri_ii}
           
          
         /> </div>
@@ -2322,12 +2667,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
           
         </form>
         <form className="form-container5">
-        <div>Röle 5</div>
+        <div className="relayheadertext">Röle 5 I&gt;&gt;</div>
             <div >   <Select
-          value={this.state.selectedOption}
-        onChange={this.DropDown5}
-          options={options}
-          placeholder={this.state.selectedOption}
+          value={this.state.Röle5Egri_ii}
+        onChange={this.DropDown5ii}
+          options={optionsii}
+          placeholder={this.state.Röle5Egri_ii}
           
          
         /> </div>
@@ -2337,7 +2682,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
               name="iitms5"
               value={this.state.iitms5}
              onChange={this.handleChange5}
-               placeholder='Eğri Değerini Giriniz'
+               placeholder='Eğri Değerini'
             />
         
           <br />
@@ -2350,7 +2695,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
               name="iict5"
               value={this.state.iict5}
               onChange={this.handleChange5}
-              placeholder='Eğri Değerini Giriniz'
+              placeholder='Eğri Değerini'
             />
         
           <br />
@@ -2381,13 +2726,19 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
   }
  
   render() {
-
+    const { loading } = this.state;
+   
  
     
-    ;
+    
     return (
       
       <div>
+   <div className="app-container">
+        <LoaderComponent loading={loading} />
+      
+      
+      </div>
     <Sidebar/>
     <ToastContainer
         position="top-right"
@@ -2420,7 +2771,8 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
 
       
    {
-        this.state.isVisibleDropİcon1 ? (  
+        this.state.isVisibleDropİcon1 ?
+         (  
         <div className="kare"  >
         <div className="DropdownOpen" >  
         <h4>I&gt; Fonksiyonu Aktif </h4>          
@@ -2429,12 +2781,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
           </div>
         <form className="form-container1">
         <div >  
-          <div>Röle 1</div>
+          <div className="relayheadertext">Röle 1 I&gt;</div>
            <Select
-          value={this.state.selectedOption}
+          value={this.state.Röle1Egri}
           onChange={this.handleChange}
           options={options}
-          placeholder={this.state.selectedOption}
+          placeholder={this.state.Röle1Egri}
           
          
         /> </div>
@@ -2447,7 +2799,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
               name="tms1"
               value={this.state.tms1}
               onChange={this.handleChange1}
-              placeholder="Eğri seçimini Girin"
+              placeholder="Eğri Değeri"
             />
     
           <br />
@@ -2459,7 +2811,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
               name="ct1"
               value={this.state.ct1}
               onChange={this.handleChange1}
-              placeholder="Akım Trafosu Değeri"
+              placeholder="Akım Trafosu"
             />
        
           <br />
@@ -2480,12 +2832,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
         <form className="form-container2">
 
         <div > 
-        <div>Röle 2</div> 
+        <div className="relayheadertext">Röle 2 I&gt;</div> 
          <Select
-          value={this.state.selectedOption}
+          value={this.state.Röle2Egri}
           onChange={this.DropDown2}
           options={options}
-          placeholder={this.state.selectedOption}
+          placeholder={this.state.Röle2Egri}
           
          
         /> </div>
@@ -2529,12 +2881,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
         <form className="form-container3">
       
         <div > 
-        <div>Röle 3</div> 
+        <div className="relayheadertext">Röle 3 I&gt;</div> 
            <Select
-          value={this.state.selectedOption}
+          value={this.state.Röle3Egri}
           onChange={this.DropDown3}
           options={options}
-          placeholder={this.state.selectedOption}
+          placeholder={this.state.Röle3Egri}
           
          
         /> </div>
@@ -2578,12 +2930,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
          
       
         <div >   
-        <div>Röle 4</div>
+        <div className="relayheadertext">Röle 4 I&gt;</div>
           <Select
-          value={this.state.selectedOption}
+          value={this.state.Röle4Egri}
           onChange={this.DropDown4}
           options={options}
-          placeholder={this.state.selectedOption}
+          placeholder={this.state.Röle4Egri}
           
          
         /> </div>
@@ -2624,12 +2976,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
           
         </form>
         <form className="form-container5">
-        <div>Röle 5</div>
+        <div className="relayheadertext">Röle 5 I&gt;</div>
             <div >   <Select
-          value={this.state.selectedOption}
+          value={this.state.Röle5Egri}
           onChange={this.DropDown5}
           options={options}
-          placeholder={this.state.selectedOption}
+          placeholder={this.state.Röle5Egri}
           
          
         /> </div>
@@ -2639,7 +2991,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
               name="tms5"
               value={this.state.tms5}
               onChange={this.handleChange5}
-               placeholder='Eğri Değerini Giriniz'
+               placeholder='Eğri Değerini'
             />
         
           <br />
@@ -2652,7 +3004,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
               name="ct5"
               value={this.state.ct5}
               onChange={this.handleChange5}
-              placeholder='Eğri Değerini Giriniz'
+              placeholder='Eğri Değerini'
             />
         
           <br />
@@ -2669,10 +3021,10 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
        
         </form>
         </div>): (
-            <div className="karehidden">
+        <div className="karehidden">
          <FiChevronsDown  data-icon="Firstİcon" onClick={this.Dropİcon} 
         style={{ cursor: 'pointer', fontSize: '24px' }} color="black" size={50}/> <h4>I&gt;  Fonsksiyonu Pasif Durumda  </h4> 
-          </div>
+        </div>
         )
        }
 
@@ -2690,34 +3042,16 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
        }
       
 
-         {/*}  <div className="react-table"><DataTable 
-        kisa_devre_react_Table={this.state.Kisa_Devre_React_Table}
-        
-        röle1Data={this.state.dataY2_React_Table} röle2Data={this.state.series[1].data} röle3Data={this.state.series[2].data}
-        röle4Data={this.state.series[3].data} röle5Data={this.state.series[4].data}/> </div>  */}
+     
         <div className=" tanitim" > <h4>AYARLADIĞINIZ RÖLELERİN KISA DEVRE AKIMLARINA KARŞI DAVRANIŞLARINI İNCELEYEBİLİRSİNİZ</h4> </div>
-          {/*       <div className="electric-container">
-    
-      <div className="electric-line">
-      <div className="text">Enerjinin Akış Yönü</div>
-      </div>
-    </div>*/ }
+         
  
         <ModernCircles onInputChange={this.handleInputChange} 
         Result_Relay1={this.hesapKitap()}/>
         
     
       </div>
-      
-     /* <div>
-   <Chart
-         className="chart"
-          options={this.state.options}
-          series={this.state.series}
-          type="line"
-          width="900"
-        />
-      </div>*/
+
       
     );
   }
