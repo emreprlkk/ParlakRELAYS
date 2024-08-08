@@ -3,6 +3,21 @@
   margin: 20px;
 }
 
+@media (max-width: 600px) {
+  .photo-container {
+    display:flex;
+    
+ 
+    
+    width: 180px !important; /* Konteynerin genişliği */
+    height: 250px !important; /* Konteynerin yüksekliği */
+    border-radius: 50%;
+    border: 3px solid black;
+
+  }
+  
+ 
+}
 
 .blog {
   max-width: 800px;
@@ -69,7 +84,7 @@
 
 .answer {
   padding: 10px;
-  border-left: 3px solid #007bff;
+  border-left: 3px solid black;
   background-color: #eef6ff;
   list-style-type: disc;
   margin-left: 20px;

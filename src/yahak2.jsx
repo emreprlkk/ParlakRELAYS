@@ -2468,7 +2468,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
    
         {this.state.DTİİ1 ? ( <input className="inputPlaceholder"
                   data-iitms1="iitms1"
-           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
              name="iitms1"
               value={this.state.iitms1}
@@ -2476,12 +2476,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
               placeholder="Zaman (Saniye)"
             />):( <input className="inputPlaceholder"
                   data-iitms1="iitms1"
-           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
              name="iitms1"
               value={this.state.iitms1}
             onChange={this.handleChange1}
-              placeholder="Eğrinin Değerini Giriniz"
+              placeholder="Eğrinin Değeri:0,4"
             />) }
            
     
@@ -2489,13 +2489,13 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
      
             <input   className="inputPlaceholder"
       //      data-iict1="iict1"
-          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
       //     className={Styles.inputNumber}
               type="number"
               name="iict1"
               value={this.state.iict1}
             onChange={this.handleChange1}
-              placeholder="Akım Trafosu Değeri"
+              placeholder="Akım Trafosu:600"
             />
        
           <br />
@@ -2504,12 +2504,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
             <input
             className="inputPlaceholder"
            // data-iicm1="iicm1"
-          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="iicm1"
               value={this.state.iicm1}
               onChange={this.handleChange1}
-              placeholder="Akım Çarpanı"
+              placeholder="Akım Çarpanı:5"
             />
         
         </form>
@@ -2532,44 +2532,44 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
         {this.state.DTİİ2 ? (
            <input className="inputPlaceholder"
                   data-iitms1="iitms1"
-           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
              name="iitms2"
               value={this.state.iitms2}
             onChange={this.handleChange2}
-              placeholder="Zaman (Saniye)"
+              placeholder="Zaman(Saniye)"
             />):( <input className="inputPlaceholder"
                   data-iitms1="iitms1"
-           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
              name="iitms2"
               value={this.state.iitms2}
             onChange={this.handleChange2}
-              placeholder="Eğri seçimini Girin"
+              placeholder="Eğri Değeri:0,22"
             />) }
           
           <br />
         
          
             <input  className="inputPlaceholder"
-             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="iict2"
               value={this.state.iict2}
               onChange={this.handleChange2}
-              placeholder="Akım Trafosu Değeri"
+              placeholder="Akım Trafosu:400"
             />
          
           <br />
          
        
             <input className="inputPlaceholder"
-             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="iicm2"
               value={this.state.iicm2}
           onChange={this.handleChange2}
-              placeholder="Akım Çarpanı"
+              placeholder="Akım Çarpanı:10"
             />
           
         </form>
@@ -2586,34 +2586,34 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
          
         /> </div>
        <input  className="inputPlaceholder"
-             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="iitms3"
               value={this.state.iitms3}
               onChange={this.handleChange3}
-              placeholder="Eğrinin Değerini Giriniz"
+              placeholder="Eğri:0,18"
             /> 
           <br />    
          
             <input className="inputPlaceholder"
-          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="iict3"
               value={this.state.iict3}
              onChange={this.handleChange3}
-              placeholder="Akım Trafosu Değeri"
+              placeholder="Akım Trafosu:300"
             />
         
           <br />
          
         
             <input className="inputPlaceholder"
-     style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+     style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="iicm3"
               value={this.state.iicm3}
             onChange={this.handleChange3}
-              placeholder="Akım Çarpanı"
+              placeholder="Akım Çarpanı:10"
             />
         
         </form>
@@ -2633,36 +2633,36 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
      
       
             <input  className="inputPlaceholder"
-         style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+         style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="iitms4"
               value={this.state.iitms4}
            onChange={this.handleChange4}
-              placeholder="Eğrinin Değerini Giriniz"
+              placeholder="Eğri Değeri:0,150"
             />
      
           <br />
          
  
             <input className="inputPlaceholder"
-            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' ,backgroundColor: 'lightgrey'}}
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }}
              
               type="number"
               name="iict4"
               value={this.state.iict4}
               onChange={this.handleChange4}
-              placeholder="Akım Trafosu Değeri"
+              placeholder="Akım Trafosu:200"
             />
         
           <br />
          
             <input className="inputPlaceholder"
-            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="iicm4"
               value={this.state.iicm4}
             onChange={this.handleChange4}
-              placeholder="Akım Çarpanı"
+              placeholder="Akım Çarpanı:30"
             />
           
         </form>
@@ -2677,12 +2677,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
          
         /> </div>
             <input  className="inputPlaceholder"
-            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="iitms5"
               value={this.state.iitms5}
              onChange={this.handleChange5}
-               placeholder='Eğri Değerini'
+               placeholder='Eğri Değeri:0,05'
             />
         
           <br />
@@ -2690,24 +2690,24 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
           
             
             <input className="inputPlaceholder"
-          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
             type="number"
               name="iict5"
               value={this.state.iict5}
               onChange={this.handleChange5}
-              placeholder='Eğri Değerini'
+              placeholder='Akım Trafosu:50'
             />
         
           <br />
       
          
             <input  className="inputPlaceholder"
-            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="iicm5"
               value={this.state.iicm5}
               onChange={this.handleChange5}
-              placeholder='Akım Çarpanı'
+              placeholder='Akım Çarpanı:50'
             />
        
         </form>
@@ -2752,7 +2752,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
         pauseOnHover
         theme="light"
       />
-        <div    className="chart">  
+        <div  className="chart">  
           <Chart
           width='100%'
           height='100%'
@@ -2794,24 +2794,24 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
        
             <input className="inputPlaceholder"
                   
-           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+           style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="tms1"
               value={this.state.tms1}
               onChange={this.handleChange1}
-              placeholder="Eğri Değeri"
+              placeholder="Eğri Değeri:0,3"
             />
     
           <br />
      
             <input   className="inputPlaceholder"
-          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
       //     className={Styles.inputNumber}
               type="number"
               name="ct1"
               value={this.state.ct1}
               onChange={this.handleChange1}
-              placeholder="Akım Trafosu"
+              placeholder="Akım Trafosu:600"
             />
        
           <br />
@@ -2819,12 +2819,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
        
             <input
             className="inputPlaceholder"
-          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="cmt1"
               value={this.state.cmt1}
               onChange={this.handleChange1}
-              placeholder="Akım Çarpanı"
+              placeholder="Akım Çarpanı:1"
             />
         
         </form>
@@ -2845,36 +2845,36 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
          
          
             <input     className="inputPlaceholder"
-        style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+        style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="tms2"
               value={this.state.tms2}
               onChange={this.handleChange2}
-              placeholder="Eğrinin Değerini Giriniz"
+              placeholder="Eğri Değeri:0,22"
             />
           
           <br />
         
          
             <input  className="inputPlaceholder"
-             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="ct2"
               value={this.state.ct2}
               onChange={this.handleChange2}
-              placeholder="Akım Trafosu Değeri"
+              placeholder="Akım Trafosu:400"
             />
          
           <br />
          
        
             <input className="inputPlaceholder"
-             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="cmt2"
               value={this.state.cmt2}
               onChange={this.handleChange2}
-              placeholder="Akım Çarpanı"
+              placeholder="Akım Çarpanı:1 "
             />
           
         </form>
@@ -2893,36 +2893,36 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
        
         
             <input  className="inputPlaceholder"
-             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+             style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="tms3"
               value={this.state.tms3}
               onChange={this.handleChange3}
-              placeholder="Eğrinin Değerini Giriniz"
+              placeholder="Eğri Değeri:0,15"
             />
         
           <br />
      
          
             <input className="inputPlaceholder"
-          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="ct3"
               value={this.state.ct3}
               onChange={this.handleChange3}
-              placeholder="Akım Trafosu Değeri"
+              placeholder="Akım Trafosu:300"
             />
         
           <br />
          
         
             <input className="inputPlaceholder"
-     style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+     style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="cmt3"
               value={this.state.cmt3}
               onChange={this.handleChange3}
-              placeholder="Akım Çarpanı"
+              placeholder="Akım Çarpanı:1"
             />
         
         </form>
@@ -2942,36 +2942,36 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
      
       
             <input  className="inputPlaceholder"
-         style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+         style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="tms4"
               value={this.state.tms4}
               onChange={this.handleChange4}
-              placeholder="Eğrinin Değerini Giriniz"
+              placeholder="Eğri Değeri:0,1"
             />
      
           <br />
          
  
             <input className="inputPlaceholder"
-            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' ,backgroundColor: 'lightgrey'}}
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px'}}
              
               type="number"
               name="ct4"
               value={this.state.ct4}
               onChange={this.handleChange4}
-              placeholder="Akım Trafosu Değeri"
+              placeholder="Akım Trafosu:200"
             />
         
           <br />
          
             <input className="inputPlaceholder"
-            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="cmt4"
               value={this.state.cmt4}
               onChange={this.handleChange4}
-              placeholder="Akım Çarpanı"
+              placeholder="Akım Çarpanı:1"
             />
           
         </form>
@@ -2986,12 +2986,12 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
          
         /> </div>
             <input  className="inputPlaceholder"
-            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="tms5"
               value={this.state.tms5}
               onChange={this.handleChange5}
-               placeholder='Eğri Değerini'
+               placeholder='Eğri Değerini:0,05'
             />
         
           <br />
@@ -2999,24 +2999,24 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
           
             
             <input className="inputPlaceholder"
-          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+          style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
             type="number"
               name="ct5"
               value={this.state.ct5}
               onChange={this.handleChange5}
-              placeholder='Eğri Değerini'
+              placeholder='Akım Trafosu:50'
             />
         
           <br />
       
          
             <input  className="inputPlaceholder"
-            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '14px' }} 
+            style={{ width: '95%', height: '1vh', padding: '5px', fontSize: '10px' }} 
               type="number"
               name="cmt5"
               value={this.state.cmt5}
               onChange={this.handleChange5}
-              placeholder='Akım Çarpanı'
+              placeholder='Akım Çarpanı:1'
             />
        
         </form>
@@ -3043,7 +3043,7 @@ else if (this.state.StateDeneme[4]!='' && this.state.StateDeneme[4]!=0 && this.s
       
 
      
-        <div className=" tanitim" > <h4>AYARLADIĞINIZ RÖLELERİN KISA DEVRE AKIMLARINA KARŞI DAVRANIŞLARINI İNCELEYEBİLİRSİNİZ</h4> </div>
+        <div className=" tanitim" > <h4> RÖLELERİ AYARLADIKTAN SONRA KISA DEVRE AKIMLARINA KARŞI DAVRANIŞLARINI İNCELEYEBİLİRSİNİZ</h4> </div>
          
  
         <ModernCircles onInputChange={this.handleInputChange} 

@@ -71,7 +71,7 @@
 .inputPlaceholder {
   font-family: 'Roboto', sans-serif; /* Yazı tipi */
   margin-top: 5px !important;
-  font-size: 12px !important;                  /* Yazı boyutu */
+  font-size: 10px !important;                  /* Yazı boyutu */
   color: hsl(0, 79%, 45%);                      /* Yazı rengi */
   opacity: 1; /* Placeholder metninin opaklığını değiştir */
 }
@@ -236,7 +236,7 @@ margin-left: -220px;
 
 .inputPlaceholder {
   font-family: 'Roboto', sans-serif; /* Yazı tipi */
-  font-size: 16px;                  /* Yazı boyutu */
+  font-size: 10px;                  /* Yazı boyutu */
   color: hsl(0, 79%, 45%);                      /* Yazı rengi */
   opacity: 1; /* Placeholder metninin opaklığını değiştir */
 }

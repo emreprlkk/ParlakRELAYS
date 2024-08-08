@@ -17,13 +17,13 @@ const Sidebar = () => {
   return (
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
       <button className="toggle-btn" onClick={toggleSidebar}>
-        {isOpen ? 'Kapat' : 'Aç'}
+        {isOpen ? 'Kapat' : 'Menü'}
       </button>
       <nav className="nav">
         <ul>
         <div className='welcome'>HOŞGELDİNİZ</div>
           <li><a href="/ConfigAndSim"><HomeIcon fontSize="large"/>Relay Configrasyon & Simülasyon</a></li>
-          <li><a href="/Blog"><BorderColorIcon/>Blog-Röleler</a></li>
+          <li><a href="/Blog"><BorderColorIcon/>Blog-Röleler </a></li>
           <li><a href="/DevAbout"><InfoIcon/> Geliştirici Hakkında</a></li>
           {/*<li><a href="#İletişimBilgileri"><CallIcon/>İletişim</a></li>*/}
           <li><a href="/"><LogoutIcon />Çıkış</a></li>
